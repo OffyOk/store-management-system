@@ -1,94 +1,22 @@
-import Image from "next/image";
+import { useProducts, useProductDetail } from "./hooks/useProducts";
+import { useOrders } from "./hooks/useOrders";
+import { Products } from "@/app/interfaces/products.type";
+import { Orders, OrdersProducts } from "@/app/interfaces/orders.type";
 
-async function getProducts() {
-  const response = await fetch("https://fakestoreapi.com/products");
-
-  if (!response.ok) {
-    throw new Error("Something went wrong: Cannot get product");
-  }
-
-  const data = await response.json();
-  return data;
-}
-
-interface Product {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rating;
-}
-
-interface Rating {
-  rate: number;
-  count: number;
-}
-
-async function getOrders() {
-  const response = await fetch("https://fakestoreapi.com/carts");
-
-  if (!response.ok) {
-    throw new Error("Something went wrong: Cannot get orders");
-  }
-
-  const data = await response.json();
-  return data;
-}
-
-interface Order {
-  id: number;
-  userId: number;
-  date: string; // Assuming date is a string in ISO format like '2020-10-10'
-  products: { productId: number; quantity: number }[];
-}
-
-async function getProductDetail(id: number) {
-  const response = await fetch(`https://fakestoreapi.com/products/${id}`);
-
-  if (!response.ok) {
-    throw new Error("Something went wrong: cannot get product detail");
-  }
-
-  const data = await response.json();
-  return data;
-}
-
-interface Detail {
-  id: number;
-  title: string;
-  price: number;
-  description: string;
-  category: string;
-  image: string;
-  rating: Rating;
-}
-
-interface Rating {
-  rate: number;
-  count: number;
-}
-
-interface AllProducts {
-  productId: number;
-  quantity: number;
-}
-
-const countCustomer: number = 22;
-const countProducts: number = 32;
-const countOrders: number = 348; //sum of orders quantity
+// const countCustomer: number = 22;
+// const countProducts: number = 32;
+// const countOrders: number = 348; //sum of orders quantity
 
 export default async function Home() {
-  const products = await getProducts();
-  const orders = await getOrders();
-  const price = async (id: number) => {
-    const response = await getProductDetail(id);
+  const products = await useProducts();
+  const orders = await useOrders();
+  const Price = async (id: number) => {
+    const response = await useProductDetail(id);
     return response.price;
   };
 
-  const AllProductsInCart = orders.map((order: Order) =>
-    order.products.map((product: AllProducts) => ({
+  const AllProductsInCart = orders.map((order: Orders) =>
+    order.products.map((product: OrdersProducts) => ({
       id: product.productId,
       quantity: product.quantity,
     }))
@@ -102,7 +30,7 @@ export default async function Home() {
   const curr = 0;
   const TotalRevenue: number = AllProductsInCart.flat().reduce(
     (accum: number, curr: AllCart) => {
-      const pricc = products.find((product: Product) => product.id == curr.id);
+      const pricc = products.find((product: Products) => product.id == curr.id);
       if (pricc) {
         const currentPrice = curr.quantity * pricc.price;
         return accum + currentPrice;
@@ -128,24 +56,24 @@ export default async function Home() {
       </div>
       <div className="bg-blue-400 row-start-2 row-end-3 col-start-3 col-end-4">
         <p>Orders:</p>
-        <p>{countOrders}</p>
+        <p>asdfsdf</p>
       </div>
       <div className="row-start-2 row-end-3 col-start-4 col-end-5">
         <p>Customers:</p>
-        <p>{countCustomer}</p>
+        <p>asdfsdf</p>
       </div>
       <div className="bg-blue-400 row-start-2 row-end-3 col-start-5 col-end-6">
         <p>Products:</p>
-        <p>{countProducts}</p>
+        <p>asdfsfd</p>
       </div>
       <div className="row-start-3 row-end-5 col-start-2 col-end-4">
         <p>Product Orders/day</p>
         <ul>
-          {orders.map((order: Order) => (
+          {orders.map((order: Orders) => (
             <li key={order.id}>
               {order.products.map((p) => (
                 <p key={p.productId}>
-                  {price(p.productId)}--
+                  {Price(p.productId)}--
                   {p.quantity}
                 </p>
               ))}
@@ -156,11 +84,11 @@ export default async function Home() {
       <div className="bg-blue-400 row-start-3 row-end-5 col-start-4 col-end-6">
         <p>Hot Sales</p>
         <ul>
-          {orders.map((order: Order) => (
+          {orders.map((order: Orders) => (
             <li key={order.id}>
               {order.products.map((p) => (
                 <p key={p.productId}>
-                  {price(p.productId)}--
+                  {Price(p.productId)}--
                   {p.quantity}
                 </p>
               ))}

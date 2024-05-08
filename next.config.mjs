@@ -9,6 +9,11 @@ const nextConfig = {
         hostname: "avatars.githubusercontent.com",
         pathname: "/u/**",
       },
+      {
+        protocol: "https",
+        hostname: "plus.unsplash.com",
+        pathname: "/**",
+      },
     ],
   },
 };

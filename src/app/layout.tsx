@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import "./globals.css";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Offy-Store",
@@ -27,11 +28,21 @@ export default function RootLayout({
               />
             </div>
             <div className="my-6 mx-4">
-              <div className="text-xl my-2">DASHBOARD</div>
-              <div className="text-xl my-2">CUSTOMERS</div>
-              <div className="text-xl my-2">PRODUCTS</div>
-              <div className="text-xl my-2">ORDERS</div>
-              <div className="text-xl my-2">REPORT</div>
+              <div className="text-xl my-2">
+                <Link href="/">DASHBOARD</Link>
+              </div>
+              <div className="text-xl my-2">
+                <Link href="/users">CUSTOMERS</Link>
+              </div>
+              <div className="text-xl my-2">
+                <Link href="/products">PRODUCTS</Link>
+              </div>
+              <div className="text-xl my-2">
+                <Link href="/carts">ORDERS</Link>
+              </div>
+              <div className="text-xl my-2">
+                <Link href="/reports">REPORT</Link>
+              </div>
             </div>
           </div>
           <div className="row-start-6 row-end-7 col-start-1 col-end-2">
