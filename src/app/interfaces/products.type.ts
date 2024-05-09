@@ -12,3 +12,11 @@ export interface Rating {
   rate: number;
   count: number;
 }
+
+export interface ReProducts {
+  id: number;
+  title: string;
+  price: number;
+  quantity: number;
+  revenue: number;
+}
