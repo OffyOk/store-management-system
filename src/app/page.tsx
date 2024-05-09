@@ -3,8 +3,6 @@ import { useOrders } from "./hooks/useOrders";
 import { useUsers } from "./hooks/useUsers";
 import { Products, ReProducts } from "@/app/interfaces/products.type";
 import { Orders, OrdersProducts } from "@/app/interfaces/orders.type";
-import { Users } from "@/app/interfaces/users.type";
-import { link } from "fs";
 
 export default async function Home() {
   const products = await useProducts();
@@ -97,31 +95,44 @@ export default async function Home() {
   const hotProduct = sumAndUnique.slice(0, 5);
   // console.log(uniqueByIdWithQuantitySum);
   // console.log(hotProduct);
+
+  const randomFullNames = [
+    "Olivia Thompson",
+    "Noah Johnson",
+    "Emma Williams",
+    "Liam Smith",
+    "Ava Brown",
+  ];
+
   return (
     <>
-      <div className="row-start-1 row-end-2 col-start-2 col-end-4">
-        Dashboard
+      <div className="sm:col-span-2 md:col-span-4">
+        <div className="flex justify-between">
+          <div className="text-2xl lg:text-3xl font-semibold">Dashboard</div>
+          <div className="px-3 py-2 border border-gray-100 rounded-lg cursor-pointer">
+            Customer View
+          </div>
+        </div>
       </div>
-      <div className="row-start-1 row-end-2 col-start-5 col-end-6">
-        Customer View
+      <div className="px-14 py-4 md:p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black flex justify-between items-center">
+        <span>Revenue:</span>
+        <span className="text-2xl font-semibold">
+          {Math.floor(totalRevenue)}
+        </span>
       </div>
-      <div className="row-start-2 row-end-3 col-start-2 col-end-3">
-        <p>Revenue:</p>
-        <p>{Math.floor(totalRevenue)}</p>
+      <div className="px-14 py-4 md:p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black flex justify-between items-center">
+        <span>Orders:</span>
+        <span className="text-2xl font-semibold">{countOrders}</span>
       </div>
-      <div className="bg-blue-400 row-start-2 row-end-3 col-start-3 col-end-4">
-        <p>Orders:</p>
-        <p>{countOrders}</p>
+      <div className="px-14 py-4 md:p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black flex justify-between items-center">
+        <span>Customers:</span>
+        <span className="text-2xl font-semibold">{countUsers}</span>
       </div>
-      <div className="row-start-2 row-end-3 col-start-4 col-end-5">
-        <p>Customers:</p>
-        <p>{countUsers}</p>
+      <div className="px-14 py-4 md:p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black flex justify-between items-center">
+        <span>Products:</span>
+        <span className="text-2xl font-semibold">{countProducts}</span>
       </div>
-      <div className="bg-blue-400 row-start-2 row-end-3 col-start-5 col-end-6">
-        <p>Products:</p>
-        <p>{countProducts}</p>
-      </div>
-      <div className="row-start-3 row-end-5 col-start-2 col-end-4">
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black md:col-span-2">
         <p>Product Orders/day</p>
         <ul>
           {orderPerday.map((order: DateQuan) => (
@@ -131,16 +142,42 @@ export default async function Home() {
           ))}
         </ul>
       </div>
-      <div className="bg-blue-400 row-start-3 row-end-5 col-start-4 col-end-6">
-        <p>Hot Sales</p>
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black md:col-span-2">
+        <span>Hot Sales</span>
         <ul>
           {hotProduct.map((p: ReProducts) => (
             <li key={p.id}>* {p.title}</li>
           ))}
         </ul>
       </div>
-      <div className="bg-white row-start-5 row-end-7 col-start-2 col-end-6">
-        <p>Recent Order</p>
+      <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
+        <span>Recent Order</span>
+        <table className="w-full table-auto">
+          <thead>
+            <tr>
+              <th>DATE & TIME</th>
+              <th>FULL NAME</th>
+              <th className="hidden lg:block">EMAIL</th>
+              <th>PHONE NUMBER</th>
+              <th>AMOUNT</th>
+            </tr>
+          </thead>
+          <tbody>
+            {randomFullNames.map((fn) => {
+              return (
+                <tr key={fn}>
+                  <td className="text-center">2022-01-01 12:00:00</td>
+                  <td className="text-center">{fn}</td>
+                  <td className="text-center hidden lg:block">
+                    {fn.split(" ").join("")}@store.com
+                  </td>
+                  <td className="text-center">0912345678</td>
+                  <td className="text-center">1000</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     </>
   );
