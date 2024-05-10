@@ -51,7 +51,7 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        <div className="flex pt-16 overflow-hidden">
+        <div className="h-screen flex pt-16 overflow-hidden">
           <aside className="hidden fixed top-0 left-0 z-20 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal duration-75  lg:flex transition-width ">
             <div className="relative flex flex-col flex-1 min-h-0 pt-0 border-r">
               <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
