@@ -3,6 +3,8 @@ import { useOrders } from "./hooks/useOrders";
 import { useUsers } from "./hooks/useUsers";
 import { Products, ReProducts } from "@/app/interfaces/products.type";
 import { Orders, OrdersProducts } from "@/app/interfaces/orders.type";
+import LineChart from "@/app/components/chart";
+import Card from "./components/card";
 
 export default async function Home() {
   const products = await useProducts();
@@ -57,6 +59,7 @@ export default async function Home() {
           title: product.title,
           price: product.price,
           quantity: item.quantity,
+          image: product.image,
           revenue: product.price * item.quantity,
         };
       }
@@ -104,6 +107,18 @@ export default async function Home() {
     "Ava Brown",
   ];
 
+  const chartData = {
+    labels: ["January", "February", "March", "April", "May"],
+    datasets: [
+      {
+        label: "Sales",
+        data: [50, 60, 70, 65, 80],
+        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+      },
+    ],
+  };
+
   return (
     <>
       <div className="sm:col-span-2 md:col-span-4">
@@ -132,23 +147,47 @@ export default async function Home() {
         <span>Products:</span>
         <span className="text-2xl font-semibold">{countProducts}</span>
       </div>
-      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black md:col-span-2">
-        <p>Product Orders/day</p>
-        <ul>
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black sm:col-span-2 md:col-span-2">
+        <p className="text-xl font-semibold">Product Orders/day</p>
+        {/* <ul>
           {orderPerday.map((order: DateQuan) => (
             <li key={order.quantity}>
               date:{order.date},quantity:{order.quantity}
             </li>
           ))}
-        </ul>
+        </ul> */}
+        <div className="h-72">
+          <LineChart data={chartData} />
+        </div>
       </div>
-      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black md:col-span-2">
-        <span>Hot Sales</span>
-        <ul>
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black sm:col-span-2 md:col-span-2">
+        <p className="text-xl font-semibold overflow-auto">Hot Sales</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hotProduct.map((p: ReProducts) => {
+              return (
+                <tr
+                  className="border-b border-neutral-200 dark:border-white/50"
+                  key={p.id}
+                >
+                  <td>{p.title}</td>
+                  <td className="text-center">{p.quantity}</td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        {/* <div className="flex flex-fit overflow-auto">
           {hotProduct.map((p: ReProducts) => (
-            <li key={p.id}>* {p.title}</li>
+            <Card key={p.id} product={p} />
           ))}
-        </ul>
+        </div> */}
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
         <span>Recent Order</span>

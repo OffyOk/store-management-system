@@ -139,9 +139,9 @@ export default function RootLayout({
               </div>
             </div>
           </aside>
-          <div className="relative w-full h-full overflow-y-auto lg:ml-64 ">
+          <div className="relative w-full h-full overflow-y-auto lg:ml-64  bg-slate-100 dark:bg-indigo-950/50">
             <main>
-              <div className="px-4 pt-6 bg-slate-100 dark:bg-indigo-950/50">
+              <div className="h-screen px-4 pt-6">
                 <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
                   {children}
                 </div>

@@ -18,5 +18,6 @@ export interface ReProducts {
   title: string;
   price: number;
   quantity: number;
+  image: string;
   revenue: number;
 }
