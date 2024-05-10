@@ -12,7 +12,7 @@ import css from "@/app/styles/theme.util.module.css";
 type ThemeType = "light" | "dark";
 
 export default function SetTheme() {
-  const [theme, setTheme] = useState<ThemeType | undefined>();
+  const [theme, setTheme] = useState<string>("light");
 
   const toggleTheme = () => {
     if (theme == "light") {
@@ -22,7 +22,7 @@ export default function SetTheme() {
     }
   };
 
-  const buttonIcon = () => {
+  const buttonIcon = (theme: string) => {
     switch (theme) {
       case "dark":
         return (
@@ -51,7 +51,13 @@ export default function SetTheme() {
   };
 
   useEffect(() => {
-    document.querySelector(":root").dataset.theme = theme ?? maybeTheme();
+    const rootElement = document.querySelector(":root") as HTMLElement;
+
+    if (rootElement) {
+      rootElement.dataset.theme = theme ?? maybeTheme();
+    }
+
+    // document.querySelector(":root").dataset.theme = theme ?? maybeTheme();
     localStorage.setItem("theme", theme ?? maybeTheme());
     setTheme(theme ?? maybeTheme());
 
