@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { ReProducts } from "../interfaces/products.type";
 
-export default function Card({ product }: ReProducts) {
+export default function Card({ product }: { product: ReProducts }) {
   return (
     <>
       <div className="w-56 m-2 border shadow rounded-lg bg-white dark:bg-black">
