@@ -1,5 +1,3 @@
-import Card from "../components/card";
-
-export default function Page() {
-  return <Card />;
+export default function page() {
+  return <div>page</div>;
 }
