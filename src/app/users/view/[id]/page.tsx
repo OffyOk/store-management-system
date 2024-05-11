@@ -1,4 +1,4 @@
-export default function UsersView({ params }: Number) {
+export default function UsersView({ params }: { params: { id: number } }) {
   return (
     <>
       <div>User View/{params.id}</div>
