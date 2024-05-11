@@ -162,7 +162,7 @@ export default async function Home() {
       </div>
       <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black sm:col-span-2 md:col-span-2">
         <p className="text-xl font-semibold overflow-auto">Hot Sales</p>
-        <table>
+        <table className="w-full">
           <thead>
             <tr>
               <th>Product</th>

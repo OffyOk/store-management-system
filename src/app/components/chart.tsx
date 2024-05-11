@@ -2,13 +2,14 @@
 
 // components/LineChart.js
 import { useEffect, useRef } from "react";
-import Chart from "chart.js/auto"; // Import Chart.js
+import Chart from "chart.js/auto";
 
 const LineChart = ({ data }: any) => {
   const chartRef = useRef(null);
-
+  console.log(data);
   useEffect(() => {
     if (chartRef && chartRef.current) {
+      document.createElement("canvas");
       const myChart = new Chart(chartRef.current, {
         type: "line",
         data: data,
