@@ -9,7 +9,6 @@ const LineChart = ({ data }: any) => {
   console.log(data);
   useEffect(() => {
     if (chartRef && chartRef.current) {
-      document.createElement("canvas");
       const myChart = new Chart(chartRef.current, {
         type: "line",
         data: data,

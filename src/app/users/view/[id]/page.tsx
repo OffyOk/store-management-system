@@ -1,3 +1,8 @@
-export default function Page() {
-  return <div>View</div>;
+export default function UsersView({ params }: Number) {
+  return (
+    <>
+      <div>User View/{params.id}</div>
+      <div>In Progress</div>
+    </>
+  );
 }

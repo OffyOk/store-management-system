@@ -1,7 +1,7 @@
 import { useOrderDetail } from "@/app/hooks/useOrders";
 import { OrdersProducts } from "@/app/interfaces/orders.type";
 
-const Page = async ({ params }: { params: { slug: string; id: number } }) => {
+const CartView = async ({ params }: { params: { id: number } }) => {
   const orderDetail = await useOrderDetail(params.id);
   return (
     <>
@@ -40,4 +40,4 @@ const Page = async ({ params }: { params: { slug: string; id: number } }) => {
   );
 };
 
-export default Page;
+export default CartView;
