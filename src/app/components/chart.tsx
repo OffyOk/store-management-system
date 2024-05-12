@@ -6,7 +6,7 @@ import Chart from "chart.js/auto";
 
 const LineChart = ({ data }: any) => {
   const chartRef = useRef(null);
-  console.log(data);
+  // console.log(data);
   useEffect(() => {
     if (chartRef && chartRef.current) {
       const myChart = new Chart(chartRef.current, {

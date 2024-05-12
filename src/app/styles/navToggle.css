@@ -1,0 +1,13 @@
+.nav-visible {
+  display: flex;
+}
+
+.nav-hidden {
+  display: none;
+}
+
+.toggle-button {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+}

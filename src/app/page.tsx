@@ -124,8 +124,8 @@ export default async function Home() {
       <div className="sm:col-span-2 md:col-span-4">
         <div className="flex justify-between">
           <div className="text-2xl lg:text-3xl font-semibold">Dashboard</div>
-          <div className="px-3 py-2 border border-gray-100 rounded-lg cursor-pointer">
-            Customer View
+          <div className="px-3 py-2 bg-yellow-300 border border-yellow-400 rounded-lg cursor-pointer shadow-lg">
+            <a href="https://store-offyok.vercel.app">Customer View</a>
           </div>
         </div>
       </div>

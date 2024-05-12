@@ -4,6 +4,7 @@ import Link from "next/link";
 import "./styles/globals.css";
 import "./styles/variables.css";
 import ThemeToggle from "@/app/components/theme.util";
+import NavToggle from "@/app/components/navToggle";
 
 export const metadata: Metadata = {
   title: "Store-admin-offyok",
@@ -39,21 +40,16 @@ export default function RootLayout({
 
               <div className="flex items-center">
                 <ThemeToggle />
-                <div className="h-7 w-7 mr-3 hidden sm:block">
-                  <Image
-                    className="rounded-full"
-                    src="https://avatars.githubusercontent.com/u/96122242?v=10"
-                    width={100}
-                    height={100}
-                    alt="Logo"
-                  />
-                </div>
+                <NavToggle />
               </div>
             </div>
           </div>
         </nav>
         <div className="h-screen flex pt-16 overflow-hidden">
-          <aside className="hidden fixed top-0 left-0 z-20 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal duration-75  lg:flex transition-width ">
+          <aside
+            id="content"
+            className="hidden fixed top-0 left-0 z-20 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal duration-75  lg:flex transition-width"
+          >
             <div className="relative flex flex-col flex-1 min-h-0 pt-0 border-r">
               <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
                 <div className="flex-1 px-3 space-y-1">
