@@ -1,13 +1,10 @@
+import { useProducts, useProductDetail } from "../hooks/useProducts";
+import { Products } from "../interfaces/products.type";
 import Link from "next/link";
 
-const randomFullNames = [
-  "Olivia Thompson",
-  "Noah Johnson",
-  "Emma Williams",
-  "Liam Smith",
-  "Ava Brown",
-];
-export default function ProductList() {
+export default async function UsersList() {
+  const products: Products[] = await useProducts();
+
   return (
     <>
       <div className="sm:col-span-2 md:col-span-4">
@@ -18,12 +15,12 @@ export default function ProductList() {
       <div className="flex justify-between sm:col-span-2 md:col-span-4">
         <div>
           <form action="/">
-            <label className="mr-3" htmlFor="cart">
-              Search Product
+            <label className="mr-3" htmlFor="product">
+              Search products
             </label>
             <input
               className="mr-3"
-              id="cart"
+              id="product"
               type="text"
               placeholder="Search here"
             />
@@ -31,36 +28,39 @@ export default function ProductList() {
           </form>
         </div>
         <div>
-          <button>New Product</button>
+          <Link href={`products/create`}>
+            <button>New product</button>
+          </Link>
         </div>
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
-        <span>Recent Order</span>
         <table className="w-full table-auto">
           <thead>
             <tr>
-              <th>DATE & TIME</th>
-              <th>FULL NAME</th>
-              <th className="hidden lg:block">EMAIL</th>
-              <th>PHONE NUMBER</th>
-              <th>AMOUNT</th>
+              <th className="columns-2xs ">TITLE</th>
+              <th>CATEGORY</th>
+              <th>RATING</th>
+              <th>PRICE</th>
               <th>ACTION</th>
             </tr>
           </thead>
           <tbody>
-            {randomFullNames.map((fn) => {
+            {products.map((product: Products) => {
               return (
-                <tr key={fn}>
-                  <td className="text-center">2022-01-01 12:00:00</td>
-                  <td className="text-center">{fn}</td>
-                  <td className="text-center hidden lg:block">
-                    {fn.split(" ").join("")}@store.com
+                <tr key={product.id}>
+                  <td className="columns-2xs">{product.title}</td>
+                  <td className="overflow-hidden  hidden lg:block">
+                    {product.category}
                   </td>
-                  <td className="text-center">0912345678</td>
-                  <td className="text-center">1000</td>
-                  <td className="text-center">
-                    <Link href="/carts/view/1">View</Link>
-                    <button>Update</button>
+                  <td className="text-left">{product.rating.rate}</td>
+                  <td className="text-left">{product.price}</td>
+                  <td className="text-left">
+                    <Link href={`products/view/${product.id}`}>
+                      <button>View</button>
+                    </Link>
+                    <Link href={`update/update/${product.id}`}>
+                      <button>Update</button>
+                    </Link>
                     <button>Delete</button>
                   </td>
                 </tr>

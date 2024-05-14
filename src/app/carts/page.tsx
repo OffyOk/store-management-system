@@ -1,6 +1,18 @@
+import { useOrders } from "../hooks/useOrders";
+import { Orders, OrdersProducts } from "../interfaces/orders.type";
+import { useUsers } from "../hooks/useUsers";
+import { Users } from "../interfaces/users.type";
 import Link from "next/link";
 
-export default function CartList() {
+export default async function CartList() {
+  const orders: Orders[] = await useOrders(); // order: [{id:1,userId:A,date:...,products:[{productId:...,quantity:3},...{}]},...,{}]
+  const users: Users[] = await useUsers();
+  // we want to know who is this userId ,and what product in a cart
+  // so we will go in to each order then use UserId to match with id from Users
+  const reOrder = orders.map((order: Orders) =>
+    users.find((u: Users) => u.id === order.userId)
+  );
+
   const randomFullNames = [
     "Olivia Thompson",
     "Noah Johnson",

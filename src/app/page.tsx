@@ -3,9 +3,9 @@ import { useOrders } from "./hooks/useOrders";
 import { useUsers } from "./hooks/useUsers";
 import { Products, ReProducts } from "@/app/interfaces/products.type";
 import { Orders, OrdersProducts } from "@/app/interfaces/orders.type";
+import { Users } from "./interfaces/users.type";
 import LineChart from "@/app/components/chart";
 import Card from "./components/card";
-
 export default async function Home() {
   const products = await useProducts();
   const orders = await useOrders();
@@ -118,6 +118,7 @@ export default async function Home() {
       },
     ],
   };
+  console.log(users);
 
   return (
     <>
@@ -202,15 +203,15 @@ export default async function Home() {
             </tr>
           </thead>
           <tbody>
-            {randomFullNames.map((fn) => {
+            {users.map((user: Users) => {
               return (
-                <tr key={fn}>
+                <tr key={user.id}>
                   <td className="text-center">2022-01-01 12:00:00</td>
-                  <td className="text-center">{fn}</td>
-                  <td className="text-center hidden lg:block">
-                    {fn.split(" ").join("")}@store.com
+                  <td className="text-center">
+                    {user.name.firstname} {user.name.lastname}
                   </td>
-                  <td className="text-center">0912345678</td>
+                  <td className="text-center hidden lg:block">{user.email}</td>
+                  <td className="text-center">{user.phone}</td>
                   <td className="text-center">1000</td>
                 </tr>
               );

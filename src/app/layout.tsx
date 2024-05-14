@@ -4,7 +4,7 @@ import Link from "next/link";
 import "./styles/globals.css";
 import "./styles/variables.css";
 import ThemeToggle from "@/app/components/theme.util";
-import NavToggle from "@/app/components/navToggle";
+// import NavToggle from "@/app/components/_navToggle";
 
 export const metadata: Metadata = {
   title: "Store-admin-offyok",
@@ -40,7 +40,7 @@ export default function RootLayout({
 
               <div className="flex items-center">
                 <ThemeToggle />
-                <NavToggle />
+                {/* <NavToggle /> */}
               </div>
             </div>
           </div>
@@ -113,7 +113,7 @@ export default function RootLayout({
                         ORDERS
                       </Link>
                     </li>
-                    <li className="flex items-center p-2 text-base rounded-lg">
+                    {/* <li className="flex items-center p-2 text-base rounded-lg">
                       <Link className="flex" href="/reports">
                         <svg
                           className="mr-2 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
@@ -130,7 +130,7 @@ export default function RootLayout({
                         </svg>
                         REPORT
                       </Link>
-                    </li>
+                    </li> */}
                   </ul>
                 </div>
               </div>
