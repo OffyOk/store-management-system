@@ -55,7 +55,7 @@ export default async function UsersList() {
                   <td className="text-center">{user.email}</td>
                   <td className="text-center">{user.phone}</td>
                   <td className="text-center">
-                    <Link href={`users/${user.id}`}>View</Link>
+                    <Link href={`users/view/${user.id}`}>View</Link>
                     <button>Update</button>
                     <button>Delete</button>
                   </td>
