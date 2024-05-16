@@ -6,6 +6,7 @@ import { Orders, OrdersProducts } from "@/app/interfaces/orders.type";
 import { Users } from "./interfaces/users.type";
 import LineChart from "@/app/components/chart";
 import Card from "./components/card";
+
 export default async function Home() {
   const products = await useProducts();
   const orders = await useOrders();
@@ -118,7 +119,6 @@ export default async function Home() {
       },
     ],
   };
-  console.log(users);
 
   return (
     <>
@@ -206,10 +206,8 @@ export default async function Home() {
             {users.map((user: Users) => {
               return (
                 <tr key={user.id}>
-                  <td className="text-center">2022-01-01 12:00:00</td>
-                  <td className="text-center">
-                    {user.name.firstname} {user.name.lastname}
-                  </td>
+                  <td className="text-center">{dateSort.date}</td>
+                  <td className="text-center">{dateSort.fullName}</td>
                   <td className="text-center hidden lg:block">{user.email}</td>
                   <td className="text-center">{user.phone}</td>
                   <td className="text-center">1000</td>

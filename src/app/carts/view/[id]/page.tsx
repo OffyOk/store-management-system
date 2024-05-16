@@ -59,12 +59,26 @@ const CartView = async ({ params }: { params: { id: number } }) => {
           </div>
 
           <div className="mt-3">
+            <span className="font-semibold">Customer Address: </span>
+            <div className="pl-5">
+              <span>Number:</span>
+              <span className="ml-1">{user?.address.number}</span>
+              <span className="ml-5">Street:</span>
+              <span className="ml-1">{user?.address.street}</span>
+              <span className="ml-5">city:</span>
+              <span className="ml-1">{user?.address.city}</span>
+              <span className="ml-5">zipcode:</span>
+              <span className="ml-1">{user?.address.zipcode}</span>
+            </div>
+          </div>
+
+          <div className="mt-3">
             <span className="font-semibold">Products in Order: </span>
             <table className="w-full">
               <thead>
                 <tr>
                   <th className="w-8/12">Product</th>
-                  <th>Price</th>
+                  <th className="w-3/12">Price</th>
                   <th>Quantity</th>
                 </tr>
               </thead>
@@ -87,8 +101,8 @@ const CartView = async ({ params }: { params: { id: number } }) => {
                 })}
               </tbody>
               <tfoot>
-                <tr>
-                  <td className="px-5">Total</td>
+                <tr className="border-t border-gray-300">
+                  <td className="px-5 font-bold">Total</td>
                   <td className="px-5"></td>
                   <td className="text-center">{totalPrice}</td>
                 </tr>
