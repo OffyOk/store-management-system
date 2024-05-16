@@ -1,3 +1,5 @@
+import { Address } from "./users.type";
+
 export interface Orders {
   id: number;
   userId: number;
@@ -6,6 +8,18 @@ export interface Orders {
 }
 
 export interface OrdersProducts {
-  productId: number;
-  quantity: number;
+  id: number;
+  userId: number;
+  date: string;
+  amount: number;
+}
+
+export interface OrdersUsers {
+  id: number;
+  date: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  address: Address;
+  amount: number;
 }

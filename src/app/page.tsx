@@ -2,8 +2,12 @@ import { useProducts } from "./hooks/useProducts";
 import { useOrders } from "./hooks/useOrders";
 import { useUsers } from "./hooks/useUsers";
 import { Products, ReProducts } from "@/app/interfaces/products.type";
-import { Orders, OrdersProducts } from "@/app/interfaces/orders.type";
-import { Users } from "./interfaces/users.type";
+import {
+  Orders,
+  OrdersProducts,
+  OrdersUsers,
+} from "@/app/interfaces/orders.type";
+import { Address, Users } from "./interfaces/users.type";
 import LineChart from "@/app/components/chart";
 import Card from "./components/card";
 
@@ -50,9 +54,21 @@ export default async function Home() {
     return dateA - dateB;
   });
 
+  const chartData = {
+    labels: orderPerday.map((o) => o.date.split("T")[0]),
+    datasets: [
+      {
+        label: "Sales",
+        data: orderPerday.map((o) => o.quantity),
+        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+      },
+    ],
+  };
+
   // rewrite product to new data set
   const reProducts = orders.flatMap((order: Orders) =>
-    order.products.map((item: OrdersProducts) => {
+    order.products.map((item) => {
       const product = products.find((p: Products) => p.id === item.productId);
       if (product) {
         return {
@@ -100,25 +116,58 @@ export default async function Home() {
   // console.log(uniqueByIdWithQuantitySum);
   // console.log(hotProduct);
 
-  const randomFullNames = [
-    "Olivia Thompson",
-    "Noah Johnson",
-    "Emma Williams",
-    "Liam Smith",
-    "Ava Brown",
-  ];
+  const ordersProducts: OrdersProducts[] = orders.map((order: Orders) => {
+    let totalAmount = 0;
 
-  const chartData = {
-    labels: ["January", "February", "March", "April", "May"],
-    datasets: [
-      {
-        label: "Sales",
-        data: [50, 60, 70, 65, 80],
-        borderColor: "rgba(255, 99, 132, 1)",
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
-      },
-    ],
-  };
+    order.products.forEach((item) => {
+      const product = products.find((p: Products) => p.id === item.productId);
+
+      if (product) {
+        totalAmount += product.price * item.quantity;
+      }
+    });
+
+    return {
+      id: order.id,
+      userId: order.userId,
+      date: order.date,
+      amount: totalAmount,
+    };
+  });
+
+  const ordersUsers: OrdersUsers[] = ordersProducts.map(
+    (order: OrdersProducts) => {
+      const user = users.find((u: Users) => u.id === order.userId);
+      if (!user) {
+        throw new Error("user not found");
+      } else {
+        return {
+          id: order.id,
+          date: order.date.split("T")[0],
+          fullName: user.name.firstname + "" + user.name.lastname,
+          email: user.email,
+          phone: user.phone,
+          address: user.address,
+          amount: order.amount,
+        };
+      }
+    }
+  );
+
+  const sortOrdersUsers: OrdersUsers[] = ordersUsers.sort(
+    (a: OrdersUsers, b: OrdersUsers) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+
+      // First, compare the dates
+      if (dateA.getTime() !== dateB.getTime()) {
+        return dateB.getTime() - dateA.getTime(); // Descending order
+      }
+
+      // If dates are the same, compare by fullName
+      return a.fullName.localeCompare(b.fullName);
+    }
+  );
 
   return (
     <>
@@ -195,7 +244,7 @@ export default async function Home() {
         <table className="w-full table-auto">
           <thead>
             <tr>
-              <th>DATE & TIME</th>
+              <th>DATE</th>
               <th>FULL NAME</th>
               <th className="hidden lg:block">EMAIL</th>
               <th>PHONE NUMBER</th>
@@ -203,14 +252,14 @@ export default async function Home() {
             </tr>
           </thead>
           <tbody>
-            {users.map((user: Users) => {
+            {sortOrdersUsers.map((order: OrdersUsers) => {
               return (
-                <tr key={user.id}>
-                  <td className="text-center">{dateSort.date}</td>
-                  <td className="text-center">{dateSort.fullName}</td>
-                  <td className="text-center hidden lg:block">{user.email}</td>
-                  <td className="text-center">{user.phone}</td>
-                  <td className="text-center">1000</td>
+                <tr key={order.id}>
+                  <td className="text-center">{order.date}</td>
+                  <td className="text-center">{order.fullName}</td>
+                  <td className="text-center hidden lg:block">{order.email}</td>
+                  <td className="text-center">{order.phone}</td>
+                  <td className="text-center">{order.amount}</td>
                 </tr>
               );
             })}
