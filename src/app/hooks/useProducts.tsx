@@ -10,7 +10,7 @@ export async function useProducts() {
 }
 // output=  [{},{},{}].map/find แล้วได้ product ออกมาเป็น {}สามารถ.key=value ได้
 
-export async function useProductDetail(id: number) {
+export async function useProductDetail(id: string) {
   const response = await fetch(`https://fakestoreapi.com/products/${id}`);
 
   if (!response.ok) {

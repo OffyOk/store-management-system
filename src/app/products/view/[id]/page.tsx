@@ -5,7 +5,7 @@ import Image from "next/image";
 export default async function ProductView({
   params,
 }: {
-  params: { id: number };
+  params: { id: string };
 }) {
   const productDetail = await useProductDetail(params.id);
 

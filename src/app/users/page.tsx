@@ -28,7 +28,9 @@ export default async function UsersList() {
           </form>
         </div>
         <div>
-          <button>New customer</button>
+          <Link href="/users/create">
+            <button>New customer</button>
+          </Link>
         </div>
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
@@ -56,7 +58,7 @@ export default async function UsersList() {
                   <td className="text-center">{user.phone}</td>
                   <td className="text-center">
                     <Link href={`users/view/${user.id}`}>View</Link>
-                    <button>Update</button>
+                    <Link href={`users/update/${user.id}`}>Update</Link>
                     <button>Delete</button>
                   </td>
                 </tr>
