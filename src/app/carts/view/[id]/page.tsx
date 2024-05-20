@@ -1,7 +1,7 @@
 import { useOrderDetail } from "@/app/hooks/useOrders";
 import { useProducts } from "@/app/hooks/useProducts";
 import { useUsers } from "@/app/hooks/useUsers";
-import { Orders, OrdersProducts } from "@/app/interfaces/orders.type";
+import { Orders, OrdersProducts, Prod } from "@/app/interfaces/orders.type";
 import { Products } from "@/app/interfaces/products.type";
 import { Users } from "@/app/interfaces/users.type";
 import Link from "next/link";
@@ -14,7 +14,7 @@ const CartView = async ({ params }: { params: { id: number } }) => {
   const user = users.find((user: Users) => user.id === orderDetail.userId);
 
   const totalPrice: number = orderDetail.products.reduce(
-    (acc: any, current: OrdersProducts) => {
+    (acc: any, current: Prod) => {
       const product = products.find(
         (prod: Products) => current.productId === prod.id
       );
@@ -83,7 +83,7 @@ const CartView = async ({ params }: { params: { id: number } }) => {
                 </tr>
               </thead>
               <tbody>
-                {orderDetail.products.map((p: OrdersProducts) => {
+                {orderDetail.products.map((p: Prod) => {
                   const product = products.find(
                     (prod: Products) => p.productId === prod.id
                   );
