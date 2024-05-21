@@ -74,6 +74,84 @@ export default function FormComponent({ currentProduct, submit }: any) {
           />
           {errors.phone && <span>{errors.phone?.message}</span>}
         </div>
+        <h2>Address</h2>
+        <div className="flex items-center">
+          <label htmlFor="addressNumber">No.</label>
+          <input
+            {...register("address.number", {
+              required: "number is required",
+            })}
+            placeholder="number"
+            id="addressNumber"
+          />
+          {errors.address?.number && (
+            <span>{errors.address.number.message}</span>
+          )}
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="addressStreet">Street</label>
+          <input
+            {...register("address.street", {
+              required: "street is required",
+            })}
+            placeholder="street"
+            id="addressStreet"
+          />
+          {errors.address?.street && (
+            <span>{errors.address.street.message}</span>
+          )}
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="addressCity">City</label>
+          <input
+            {...register("address.city", {
+              required: "city is required",
+            })}
+            placeholder="city"
+            id="addressCity"
+          />
+          {errors.address?.city && <span>{errors.address.city.message}</span>}
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="addressZipcode">Zipcode</label>
+          <input
+            {...register("address.zipcode", {
+              required: "zipcode is required",
+            })}
+            placeholder="zipcode"
+            id="addressZipcode"
+          />
+          {errors.address?.zipcode && (
+            <span>{errors.address.zipcode.message}</span>
+          )}
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="Geolat">Latitude</label>
+          <input
+            {...register("address.geolocation.lat", {
+              required: "Latitude is required",
+            })}
+            placeholder="Latitude"
+            id="Geolat"
+          />
+          {errors.address?.geolocation?.lat && (
+            <span>{errors.address.geolocation.lat.message}</span>
+          )}
+        </div>
+        <div className="flex items-center">
+          <label htmlFor="GeoLong">Longitude</label>
+          <input
+            {...register("address.geolocation.long", {
+              required: "Longitude is required",
+            })}
+            placeholder="Longitude"
+            id="GeoLong"
+          />
+          {errors.address?.geolocation?.long && (
+            <span>{errors.address.geolocation.long.message}</span>
+          )}
+        </div>
+
         <button type="submit" className="mx-auto px-3 py-1 border">
           {currentProduct ? "Update" : "Create"}
         </button>

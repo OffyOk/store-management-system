@@ -45,7 +45,7 @@ export default function RootLayout({
             </div>
           </div>
         </nav>
-        <div className="h-screen flex pt-16 overflow-hidden">
+        <div className="h-screen z-0 flex pt-16 overflow-hidden">
           <aside
             id="content"
             className="hidden fixed top-0 left-0 z-20 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal duration-75  lg:flex transition-width"

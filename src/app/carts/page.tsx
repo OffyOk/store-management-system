@@ -1,10 +1,10 @@
-import { useOrders } from "../hooks/useOrders";
-import { Orders, OrdersProducts, OrdersUsers } from "../interfaces/orders.type";
 import { useUsers } from "../hooks/useUsers";
-import { Users } from "../interfaces/users.type";
-import Link from "next/link";
-import { Products } from "../interfaces/products.type";
+import { useOrders } from "../hooks/useOrders";
 import { useProducts } from "../hooks/useProducts";
+import { Users } from "../interfaces/users.type";
+import { Orders, OrdersProducts, OrdersUsers } from "../interfaces/orders.type";
+import { Products } from "../interfaces/products.type";
+import Link from "next/link";
 
 export default async function CartList() {
   const orders: Orders[] = await useOrders(); // order: [{id:1,userId:A,date:...,products:[{productId:...,quantity:3},...{}]},...,{}]
@@ -116,7 +116,7 @@ export default async function CartList() {
                   <td className="text-center">{fn.amount}</td>
                   <td className="text-center">
                     <Link href={`/carts/view/${fn.id}`}>View</Link>
-                    <button>Update</button>
+                    <Link href={`/carts/update/${fn.id}`}>Update</Link>
                     <button>Delete</button>
                   </td>
                 </tr>
