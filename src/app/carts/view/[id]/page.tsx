@@ -1,4 +1,4 @@
-import { useOrderDetail } from "@/app/hooks/useOrders";
+import { useOrders } from "@/app/hooks/useOrders";
 import { useProducts } from "@/app/hooks/useProducts";
 import { useUsers } from "@/app/hooks/useUsers";
 import { Orders, OrdersProducts, Prod } from "@/app/interfaces/orders.type";
@@ -7,8 +7,8 @@ import { Users } from "@/app/interfaces/users.type";
 import Link from "next/link";
 import Image from "next/image";
 
-const CartView = async ({ params }: { params: { id: number } }) => {
-  const orderDetail: Orders = await useOrderDetail(params.id);
+const CartView = async ({ params }: { params: { id: string } }) => {
+  const orderDetail: Orders = await useOrders(params.id);
   const products: Products[] = await useProducts();
   const users: Users[] = await useUsers();
   const user = users.find((user: Users) => user.id === orderDetail.userId);

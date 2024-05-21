@@ -1,13 +1,13 @@
-import { useProductDetail } from "@/app/hooks/useProducts";
+import { useProducts } from "@/app/hooks/useProducts";
 import { Products } from "@/app/interfaces/products.type";
 import Image from "next/image";
 
 export default async function ProductView({
   params,
 }: {
-  params: { id: number };
+  params: { id: string };
 }) {
-  const productDetail = await useProductDetail(params.id);
+  const productDetail = await useProducts(params.id);
 
   return (
     <>

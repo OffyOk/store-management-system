@@ -1,4 +1,4 @@
-import { useProducts, useProductDetail } from "../hooks/useProducts";
+import { useProducts } from "../hooks/useProducts";
 import { Products } from "../interfaces/products.type";
 import Link from "next/link";
 
