@@ -4,6 +4,7 @@ import { useProducts } from "../hooks/useProducts";
 import { Users } from "../interfaces/users.type";
 import { Orders, OrdersProducts, OrdersUsers } from "../interfaces/orders.type";
 import { Products } from "../interfaces/products.type";
+import DelButton from "../components/button/DelButton";
 import Link from "next/link";
 
 export default async function CartList() {
@@ -117,7 +118,7 @@ export default async function CartList() {
                   <td className="text-center">
                     <Link href={`/carts/view/${fn.id}`}>View</Link>
                     <Link href={`/carts/update/${fn.id}`}>Update</Link>
-                    <button>Delete</button>
+                    <DelButton />
                   </td>
                 </tr>
               );

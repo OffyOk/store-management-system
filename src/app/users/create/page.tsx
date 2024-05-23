@@ -13,8 +13,7 @@ export default function CreateUser() {
         body: JSON.stringify(user),
       });
       const data = await response.json();
-      console.log("200");
-      console.log(data);
+
       router.push("/users");
     } catch (e) {
       console.log(e);

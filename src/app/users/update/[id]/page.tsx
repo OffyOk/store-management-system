@@ -14,13 +14,15 @@ export default function UpdateUser({ params }: { params: { id: string } }) {
 
   const updateUser = async (user: Users) => {
     try {
-      const response = await fetch("https://fakestoreapi.com/users", {
-        method: "POST",
-        body: JSON.stringify(user),
-      });
+      console.log("user data:", user);
+      const response = await fetch(
+        `https://fakestoreapi.com/users/${user.id}`,
+        {
+          method: "PATCH",
+          body: JSON.stringify(user),
+        }
+      );
       const data = await response.json();
-      console.log("200");
-      console.log(data);
       router.push("/users");
     } catch (e) {
       console.log(e);
