@@ -38,7 +38,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
         <div>
           <form action="/">
             <input
-              className="mr-3"
+              className="px-4 py-2 border rounded-md w-full"
               id="product"
               type="text"
               placeholder="Search Product..."

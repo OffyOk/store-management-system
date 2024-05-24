@@ -38,7 +38,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
         <div>
           <form action="/">
             <input
-              className="mr-3"
+              className="px-4 py-2 border rounded-md w-full"
               id="order"
               type="text"
               placeholder="Search Order..."
