@@ -1,5 +1,6 @@
 "use client";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function NavToggle() {
   const navToggle = () => {
@@ -25,9 +26,11 @@ export default function NavToggle() {
           alt="Logo"
         />
       </div>
-      <h1 className="hidden self-center whitespace-nowrap font-bold text-3xl sm:block lg:text-4xl">
-        Store Management System
-      </h1>
+      <Link href="/">
+        <h1 className="hidden self-center whitespace-nowrap font-bold text-3xl sm:block lg:text-4xl">
+          Store Management System
+        </h1>
+      </Link>
     </a>
   );
 }
