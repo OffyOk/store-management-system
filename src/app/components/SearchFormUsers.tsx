@@ -2,12 +2,13 @@
 import { useState, useEffect } from "react";
 import { Users } from "../interfaces/users.type";
 import Link from "next/link";
+import { Orders } from "../interfaces/orders.type";
 
 interface SearchFormProps {
   initialData: Users[];
 }
 
-const SearchForm = ({ initialData }: SearchFormProps) => {
+const SearchFormUsers = ({ initialData }: SearchFormProps) => {
   const [data, setData] = useState<Users[]>(initialData);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState<Users[]>(initialData);
@@ -88,4 +89,4 @@ const SearchForm = ({ initialData }: SearchFormProps) => {
   );
 };
 
-export default SearchForm;
+export default SearchFormUsers;

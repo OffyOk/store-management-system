@@ -1,7 +1,6 @@
 import { useUsers } from "../hooks/useUsers";
 import { Users } from "../interfaces/users.type";
-import Link from "next/link";
-import SearchForm from "../components/SearchForm";
+import SearchFormUsers from "../components/SearchFormUsers";
 
 export default async function UsersList() {
   const users: Users[] = await useUsers();
@@ -12,7 +11,7 @@ export default async function UsersList() {
           <div className="text-2xl lg:text-3xl font-semibold">Customer</div>
         </div>
       </div>
-      <SearchForm initialData={users} />
+      <SearchFormUsers initialData={users} />
     </>
   );
 }
