@@ -52,7 +52,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
         </div>
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
-        <table className="w-full table-auto">
+        <table className="w-full table-auto  text-left">
           <thead>
             <tr>
               <th>TITLE</th>
@@ -65,7 +65,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
           <tbody>
             {filteredData.map((product: Products) => {
               return (
-                <tr className="text-left" key={product.id}>
+                <tr key={product.id}>
                   <td>{product.title}</td>
                   <td className="overflow-hidden  hidden lg:block">
                     {product.category}
