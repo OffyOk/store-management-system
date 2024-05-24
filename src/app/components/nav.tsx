@@ -1,3 +1,4 @@
+import BuyMeACoffeeButton from "@/app/components/BuyMeACoffeeScript";
 import ThemeToggle from "@/app/components/theme.util";
 import Sidebar from "@/app/components/Sidebar";
 import NavToggle from "./navToggle";
@@ -11,6 +12,7 @@ export default function Nav() {
             <NavToggle />
             <div className="flex items-center">
               <ThemeToggle />
+              <BuyMeACoffeeButton />
             </div>
           </div>
         </div>

@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import Nav from "./components/nav";
-import Image from "next/image";
-import Link from "next/link";
 import "./styles/globals.css";
 import "./styles/variables.css";
 // import NavToggle from "@/app/components/_navToggle";

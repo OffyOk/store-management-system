@@ -3,9 +3,9 @@ export default function Sidebar() {
   return (
     <aside
       id="sidebar"
-      className="hidden fixed top-0 left-0 z-20 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal duration-75 bg-white  lg:flex transition-width"
+      className="hidden h-full fixed top-0 left-0 z-20 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal bg-white dark:bg-black lg:flex "
     >
-      <div className="relative flex flex-col flex-1 min-h-0 pt-0 border-r">
+      <div className="relative flex flex-col flex-1 min-h-0 pt-0 border-r  max-lg:border-b max-lg:rounded-br ">
         <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
           <div className="flex-1 px-3 space-y-1">
             <ul className="pb-2 space-y-2">
