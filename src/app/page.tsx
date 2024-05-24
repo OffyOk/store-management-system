@@ -7,9 +7,9 @@ import {
   OrdersProducts,
   OrdersUsers,
 } from "@/app/interfaces/orders.type";
-import { Address, Users } from "./interfaces/users.type";
+import { Users } from "./interfaces/users.type";
 import LineChart from "@/app/components/chart";
-import Card from "./components/card";
+import Link from "next/link";
 
 export default async function Home() {
   const products = await useProducts();
@@ -174,9 +174,11 @@ export default async function Home() {
       <div className="sm:col-span-2 md:col-span-4">
         <div className="flex justify-between">
           <div className="text-2xl lg:text-3xl font-semibold">Dashboard</div>
-          <div className="px-3 py-2 bg-yellow-300 border border-yellow-400 rounded-lg cursor-pointer shadow-lg">
-            <a href="https://store-offyok.vercel.app">Customer View</a>
-          </div>
+          <Link href="https://store-offyok.vercel.app">
+            <button className="flex items-center gap-1 px-3 py-2 bg-blue-600 text-white text-base font-medium rounded-md shadow-sm hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300">
+              Customer View
+            </button>
+          </Link>
         </div>
       </div>
       <div className="px-14 py-4 md:p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black flex justify-between items-center">

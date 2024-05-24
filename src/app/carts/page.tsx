@@ -4,8 +4,6 @@ import { useProducts } from "../hooks/useProducts";
 import { Users } from "../interfaces/users.type";
 import { Orders, OrdersProducts, OrdersUsers } from "../interfaces/orders.type";
 import { Products } from "../interfaces/products.type";
-import DelButton from "../components/button/DelButton";
-import Link from "next/link";
 import SearchFormOrders from "../components/SearchFormOrders";
 
 export default async function CartList() {

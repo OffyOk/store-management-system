@@ -24,8 +24,8 @@ export default function RootLayout({
         <div id="scene" className="h-screen z-0 flex pt-16 overflow-hidden">
           <div className="relative w-full h-full overflow-y-auto lg:ml-64  bg-slate-100 dark:bg-indigo-950/50">
             <main>
-              <div className="h-screen px-4 pt-6">
-                <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-4">
+              <div className="h-full  px-4 pt-6">
+                <div className=" grid gap-4 sm:grid-cols-2 md:grid-cols-4">
                   {children}
                 </div>
               </div>

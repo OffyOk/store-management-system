@@ -39,16 +39,16 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
           <form action="/">
             <input
               className="px-4 py-2 border rounded-md w-full"
-              id="order"
+              id="cart"
               type="text"
-              placeholder="Search Order..."
+              placeholder="Search Cart..."
               value={searchTerm}
               onChange={handleChange}
             />
           </form>
         </div>
         <div>
-          <CreateButton refto="/orders/create" page="Order" />
+          <CreateButton refto="/carts/create" page="Cart" />
         </div>
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
@@ -73,8 +73,8 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
                   <td>{fn.phone}</td>
                   <td>{fn.amount}</td>
                   <td className="flex gap-1 justify-center mt-1">
-                    <ViewButton refto={`orders/view/${fn.id}`} />
-                    <UpdateButton refto={`orders/update/${fn.id}`} />
+                    <ViewButton refto={`carts/view/${fn.id}`} />
+                    <UpdateButton refto={`carts/update/${fn.id}`} />
                     <DelButton />
                   </td>
                 </tr>

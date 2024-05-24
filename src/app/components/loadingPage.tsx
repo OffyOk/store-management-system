@@ -1,7 +1,8 @@
+import styles from "@/app/components/loadingPage.module.css";
 export default function LoadingPage() {
   return (
-    <div className="row-start-1 row-end-7 col-start-2 col-end-6 grid place-content-center text-4xl">
-      Loading...
+    <div className="fixed top-0 left-0 lg:left-64 right-0 h-dvh grid place-content-center">
+      <span className={styles.loader}></span>
     </div>
   );
 }
