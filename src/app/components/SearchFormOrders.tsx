@@ -1,8 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
-import Link from "next/link";
 import { OrdersUsers } from "../interfaces/orders.type";
-import DelButton from "../components/button/DelButton";
+import CreateButton from "./button/CreateButton";
+import ViewButton from "./button/ViewButton";
+import UpdateButton from "./button/UpdateButton";
+import DelButton from "./button/DelButton";
 
 interface SearchFormProps {
   initialData: OrdersUsers[];
@@ -39,16 +41,14 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
               className="mr-3"
               id="order"
               type="text"
-              placeholder="Search Customer..."
+              placeholder="Search Order..."
               value={searchTerm}
               onChange={handleChange}
             />
           </form>
         </div>
         <div>
-          <Link href="/orders/create">
-            <button>New customer</button>
-          </Link>
+          <CreateButton refto="/orders/create" page="Order" />
         </div>
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
@@ -73,8 +73,8 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
                   <td className="text-center">{fn.phone}</td>
                   <td className="text-center">{fn.amount}</td>
                   <td className="text-center">
-                    <Link href={`/carts/view/${fn.id}`}>View</Link>
-                    <Link href={`/carts/update/${fn.id}`}>Update</Link>
+                    <ViewButton refto={`orders/view/${fn.id}`} />
+                    <UpdateButton refto={`orders/update/${fn.id}`} />
                     <DelButton />
                   </td>
                 </tr>
