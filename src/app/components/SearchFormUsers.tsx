@@ -66,15 +66,13 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
           <tbody>
             {filteredData.map((user: Users) => {
               return (
-                <tr key={user.id}>
-                  <td className="text-center">{user.name.firstname}</td>
-                  <td className="text-center">{user.name.lastname}</td>
-                  <td className="text-center hidden lg:block">
-                    {user.username}
-                  </td>
-                  <td className="text-center">{user.email}</td>
-                  <td className="text-center">{user.phone}</td>
-                  <td className="text-center flex gap-1 justify-center mt-1">
+                <tr className="text-left" key={user.id}>
+                  <td>{user.name.firstname}</td>
+                  <td>{user.name.lastname}</td>
+                  <td className="hidden lg:block">{user.username}</td>
+                  <td>{user.email}</td>
+                  <td>{user.phone}</td>
+                  <td className="flex gap-1 justify-center mt-1">
                     <ViewButton refto={`users/view/${user.id}`} />
                     <UpdateButton refto={`users/update/${user.id}`} />
                     <DelButton />

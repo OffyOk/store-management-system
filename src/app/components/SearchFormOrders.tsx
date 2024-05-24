@@ -66,13 +66,13 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
           <tbody>
             {filteredData.map((fn) => {
               return (
-                <tr key={fn.id}>
-                  <td className="text-center">{fn.date}</td>
-                  <td className="text-center">{fn.fullName}</td>
-                  <td className="text-center hidden lg:block">{fn.email}</td>
-                  <td className="text-center">{fn.phone}</td>
-                  <td className="text-center">{fn.amount}</td>
-                  <td className="text-center">
+                <tr className="text-left" key={fn.id}>
+                  <td>{fn.date}</td>
+                  <td>{fn.fullName}</td>
+                  <td className="hidden lg:block">{fn.email}</td>
+                  <td>{fn.phone}</td>
+                  <td>{fn.amount}</td>
+                  <td className="flex gap-1 justify-center mt-1">
                     <ViewButton refto={`orders/view/${fn.id}`} />
                     <UpdateButton refto={`orders/update/${fn.id}`} />
                     <DelButton />

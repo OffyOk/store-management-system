@@ -55,7 +55,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
         <table className="w-full table-auto">
           <thead>
             <tr>
-              <th className="columns-2xs ">TITLE</th>
+              <th>TITLE</th>
               <th>CATEGORY</th>
               <th>RATING</th>
               <th>PRICE</th>
@@ -65,14 +65,14 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
           <tbody>
             {filteredData.map((product: Products) => {
               return (
-                <tr key={product.id}>
-                  <td className="columns-2xs">{product.title}</td>
+                <tr className="text-left" key={product.id}>
+                  <td>{product.title}</td>
                   <td className="overflow-hidden  hidden lg:block">
                     {product.category}
                   </td>
-                  <td className="text-left">{product.rating.rate}</td>
-                  <td className="text-left">{product.price}</td>
-                  <td className="text-left">
+                  <td>{product.rating.rate}</td>
+                  <td>{product.price}</td>
+                  <td className="flex gap-1 justify-center mt-1">
                     <ViewButton refto={`products/view/${product.id}`} />
                     <UpdateButton refto={`products/update/${product.id}`} />
                     <DelButton />
