@@ -60,7 +60,7 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
               <th>USERNAME</th>
               <th className="hidden lg:block">EMAIL</th>
               {/* <th>PHONE NUMBER</th> */}
-              <th>ACTION</th>
+              <th className="w-36">ACTION</th>
             </tr>
           </thead>
           <tbody>
@@ -72,7 +72,7 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
                   <td className="hidden lg:block">{user.username}</td>
                   <td>{user.email}</td>
                   {/* <td>{user.phone}</td> */}
-                  <td className="flex gap-1 mt-1">
+                  <td className="flex justify-between mt-1">
                     <ViewButton refto={`users/view/${user.id}`} />
                     <UpdateButton refto={`users/update/${user.id}`} />
                     <DelButton />

@@ -59,7 +59,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
               <th>CATEGORY</th>
               <th>RATING</th>
               <th>PRICE</th>
-              <th>ACTION</th>
+              <th className="w-36">ACTION</th>
             </tr>
           </thead>
           <tbody>
@@ -72,7 +72,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
                   </td>
                   <td>{product.rating.rate}</td>
                   <td>{product.price}</td>
-                  <td className="flex gap-1 mt-1">
+                  <td className="flex justify-between mt-1">
                     <ViewButton refto={`products/view/${product.id}`} />
                     <UpdateButton refto={`products/update/${product.id}`} />
                     <DelButton />

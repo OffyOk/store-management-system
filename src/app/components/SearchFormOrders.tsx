@@ -1,9 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { OrdersUsers } from "../interfaces/orders.type";
-import CreateButton from "./button/CreateButton";
 import ViewButton from "./button/ViewButton";
-import UpdateButton from "./button/UpdateButton";
 import DelButton from "./button/DelButton";
 
 interface SearchFormProps {
@@ -47,34 +45,30 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
             />
           </form>
         </div>
-        {/* <div>
-          <CreateButton refto="/carts/create" page="Cart" />
-        </div> */}
       </div>
-      <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
-        <table className="w-full table-auto text-left ">
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black  ">
+        <table className="w-full table-auto text-left">
           <thead>
             <tr>
-              <th>DATE</th>
+              <th className="max-sm:hidden">DATE</th>
               <th>FULL NAME</th>
-              <th className="hidden lg:block">EMAIL</th>
-              <th>PHONE NUMBER</th>
+              <th className="max-md:hidden">EMAIL</th>
+              <th className="max-lg:hidden">PHONE NUMBER</th>
               <th>AMOUNT</th>
-              <th>ACTION</th>
+              <th className="w-24">ACTION</th>
             </tr>
           </thead>
           <tbody>
             {filteredData.map((fn) => {
               return (
                 <tr key={fn.id}>
-                  <td>{fn.date}</td>
+                  <td className="max-sm:hidden">{fn.date}</td>
                   <td>{fn.fullName}</td>
-                  <td className="hidden lg:block">{fn.email}</td>
-                  <td>{fn.phone}</td>
+                  <td className="max-md:hidden">{fn.email}</td>
+                  <td className="max-lg:hidden">{fn.phone}</td>
                   <td>{fn.amount}</td>
-                  <td className="flex gap-1 mt-1">
+                  <td className="flex justify-between mt-1">
                     <ViewButton refto={`carts/view/${fn.id}`} />
-                    {/* <UpdateButton refto={`carts/update/${fn.id}`} /> */}
                     <DelButton />
                   </td>
                 </tr>
