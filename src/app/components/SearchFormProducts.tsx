@@ -34,8 +34,8 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
 
   return (
     <>
-      <div className="my-3 flex justify-between sm:col-span-2 md:col-span-4">
-        <div>
+      <div className="my-3 flex items-center justify-between gap-1 sm:col-span-2 md:col-span-4">
+        <div className="max-sm:w-full">
           <form action="/">
             <input
               className="px-4 py-2 border rounded-md w-full"
@@ -57,19 +57,19 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
             <tr>
               <th>TITLE</th>
               <th className="w-36 max-sm:hidden">CATEGORY</th>
-              <th className="max-md:hidden">RATING</th>
-              <th className="max-md:hidden">PRICE</th>
+              <th className="max-[1024px]:hidden">RATING</th>
+              <th className="max-[1024px]:hidden">PRICE</th>
               <th className="w-36">ACTION</th>
             </tr>
           </thead>
           <tbody>
             {filteredData.map((product: Products) => {
               return (
-                <tr className="max-sm:h-20 md:h-12" key={product.id}>
+                <tr className="max-sm:h-24 md:h-12" key={product.id}>
                   <td>{product.title}</td>
                   <td className="max-sm:hidden">{product.category}</td>
-                  <td className="max-md:hidden">{product.rating.rate}</td>
-                  <td className="max-md:hidden">{product.price}</td>
+                  <td className="max-[1024px]:hidden">{product.rating.rate}</td>
+                  <td className="max-[1024px]:hidden">{product.price}</td>
                   <td>
                     <div className="flex justify-between">
                       <ViewButton refto={`products/view/${product.id}`} />

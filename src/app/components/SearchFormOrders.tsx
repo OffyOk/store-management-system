@@ -33,7 +33,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
   return (
     <>
       <div className="my-3 flex justify-start sm:col-span-2 md:col-span-4">
-        <div>
+        <div className="max-sm:w-full">
           <form action="/">
             <input
               className="px-4 py-2 border rounded-md w-full"
@@ -50,7 +50,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
         <table className="w-full table-auto text-left">
           <thead>
             <tr>
-              <th className="max-sm:hidden">DATE</th>
+              <th>DATE</th>
               <th>FULL NAME</th>
               <th className="max-md:hidden">EMAIL</th>
               <th className="max-lg:hidden">PHONE NUMBER</th>
@@ -62,7 +62,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
             {filteredData.map((fn) => {
               return (
                 <tr key={fn.id}>
-                  <td className="max-sm:hidden">{fn.date}</td>
+                  <td>{fn.date}</td>
                   <td>{fn.fullName}</td>
                   <td className="max-md:hidden">{fn.email}</td>
                   <td className="max-lg:hidden">{fn.phone}</td>

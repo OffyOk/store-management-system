@@ -40,7 +40,7 @@ export default async function CartList() {
       } else {
         return {
           id: order.id,
-          date: order.date.split("T")[0],
+          date: order.date.split("T")[0].replaceAll("-", "/"),
           fullName: user.name.firstname + " " + user.name.lastname,
           email: user.email,
           phone: user.phone,
