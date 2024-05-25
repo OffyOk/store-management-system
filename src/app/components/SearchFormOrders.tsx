@@ -54,7 +54,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
               <th>FULL NAME</th>
               <th className="max-md:hidden">EMAIL</th>
               <th className="max-lg:hidden">PHONE NUMBER</th>
-              <th>AMOUNT</th>
+              <th className="max-sm:hidden">AMOUNT</th>
               <th className="w-24">ACTION</th>
             </tr>
           </thead>
@@ -66,7 +66,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
                   <td>{fn.fullName}</td>
                   <td className="max-md:hidden">{fn.email}</td>
                   <td className="max-lg:hidden">{fn.phone}</td>
-                  <td>{fn.amount}</td>
+                  <td className="max-sm:hidden">{fn.amount}</td>
                   <td className="flex justify-between mt-1">
                     <ViewButton refto={`carts/view/${fn.id}`} />
                     <DelButton />

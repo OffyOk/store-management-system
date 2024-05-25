@@ -18,7 +18,7 @@ export default function CreateButton(refto: { refto: string; page: string }) {
             d="M12 4.5v15m7.5-7.5h-15"
           />
         </svg>
-        Add {refto.page}
+        <div className="max-sm:hidden">Add {refto.page}</div>
       </button>
     </Link>
   );

@@ -51,31 +51,31 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
           <CreateButton refto="/products/create" page="Product" />
         </div>
       </div>
-      <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
         <table className="w-full table-auto  text-left">
           <thead>
             <tr>
               <th>TITLE</th>
-              <th>CATEGORY</th>
-              <th>RATING</th>
-              <th>PRICE</th>
+              <th className="w-36 max-sm:hidden">CATEGORY</th>
+              <th className="max-md:hidden">RATING</th>
+              <th className="max-md:hidden">PRICE</th>
               <th className="w-36">ACTION</th>
             </tr>
           </thead>
           <tbody>
             {filteredData.map((product: Products) => {
               return (
-                <tr key={product.id}>
+                <tr className="max-sm:h-20 md:h-12" key={product.id}>
                   <td>{product.title}</td>
-                  <td className="overflow-hidden  hidden lg:block">
-                    {product.category}
-                  </td>
-                  <td>{product.rating.rate}</td>
-                  <td>{product.price}</td>
-                  <td className="flex justify-between mt-1">
-                    <ViewButton refto={`products/view/${product.id}`} />
-                    <UpdateButton refto={`products/update/${product.id}`} />
-                    <DelButton />
+                  <td className="max-sm:hidden">{product.category}</td>
+                  <td className="max-md:hidden">{product.rating.rate}</td>
+                  <td className="max-md:hidden">{product.price}</td>
+                  <td>
+                    <div className="flex justify-between">
+                      <ViewButton refto={`products/view/${product.id}`} />
+                      <UpdateButton refto={`products/update/${product.id}`} />
+                      <DelButton />
+                    </div>
                   </td>
                 </tr>
               );
