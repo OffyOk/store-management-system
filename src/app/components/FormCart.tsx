@@ -6,9 +6,9 @@ import { OrdersUsers, Prod } from "../interfaces/orders.type";
 import { Products } from "../interfaces/products.type";
 
 interface FormCartProps {
-  initOrder: OrdersUsers;
-  initProd: Products[];
-  initTotal: number;
+  initOrder?: OrdersUsers;
+  initProd?: Products[];
+  initTotal?: number;
   pathBack: string;
   viewMode?: boolean;
 }
@@ -238,8 +238,8 @@ export default function FormCart({
                 </tr>
               </thead>
               <tbody>
-                {initOrder.products?.map((p) => {
-                  const product = initProd.find(
+                {initOrder?.products?.map((p) => {
+                  const product = initProd?.find(
                     (prod: Products) => p.productId === prod.id
                   );
                   if (!product) {
