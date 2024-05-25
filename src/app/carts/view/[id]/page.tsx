@@ -30,15 +30,10 @@ const CartView = async ({ params }: { params: { id: string } }) => {
   return (
     <>
       <div className="sm:col-span-2 md:col-span-4">
-        <div className="flex justify-between">
-          <div className="text-2xl lg:text-3xl font-semibold">Order Detail</div>
-          <div className="bg-green-200 border rounded shadow px-3 py-1">
-            <Link href="/carts">Back</Link>
-          </div>
-        </div>
+        <div className="text-2xl lg:text-3xl font-semibold">Order Detail</div>
       </div>
       <div className="sm:col-span-2 md:col-span-4">
-        <div className="px-14 py-4 md:p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black flex flex-col">
+        <div className="mb-3 px-14 py-4 md:p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black flex flex-col">
           <div className="flex justify-between">
             <div>
               <span className="font-semibold">Order ID: </span>
@@ -109,6 +104,13 @@ const CartView = async ({ params }: { params: { id: string } }) => {
               </tfoot>
             </table>
           </div>
+        </div>
+        <div className="w-full flex justify-center">
+          <Link href="/carts">
+            <button className="px-4 py-2 bg-red-500 text-white font-semibold border-2 border-red-500 rounded-md transition-all duration-200 ease-in-out hover:bg-red-700 hover:border-red-700">
+              Back
+            </button>
+          </Link>
         </div>
       </div>
     </>

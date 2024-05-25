@@ -7,17 +7,17 @@ import { useRouter } from "next/navigation";
 //props = {initialData: {f:val, f:val}, pathBack: "/user"}
 //FormComponent(props)
 //formcompo ({init})
-interface FormCompProps {
+interface FormUserProps {
   initialData?: Users;
   pathBack: string;
   viewMode?: boolean;
 }
 
-export default function FormComponent({
+export default function FormUser({
   initialData,
   pathBack,
   viewMode = false,
-}: FormCompProps) {
+}: FormUserProps) {
   const router = useRouter();
 
   const itemPath = `${pathBack}/${initialData?.id}`;

@@ -34,7 +34,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
 
   return (
     <>
-      <div className="my-3 flex justify-between sm:col-span-2 md:col-span-4">
+      <div className="my-3 flex justify-start sm:col-span-2 md:col-span-4">
         <div>
           <form action="/">
             <input
@@ -47,9 +47,9 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
             />
           </form>
         </div>
-        <div>
+        {/* <div>
           <CreateButton refto="/carts/create" page="Cart" />
-        </div>
+        </div> */}
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
         <table className="w-full table-auto text-left ">
@@ -74,7 +74,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
                   <td>{fn.amount}</td>
                   <td className="flex gap-1 mt-1">
                     <ViewButton refto={`carts/view/${fn.id}`} />
-                    <UpdateButton refto={`carts/update/${fn.id}`} />
+                    {/* <UpdateButton refto={`carts/update/${fn.id}`} /> */}
                     <DelButton />
                   </td>
                 </tr>

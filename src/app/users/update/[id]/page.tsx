@@ -1,7 +1,6 @@
-import FormComponent from "@/app/components/FormComponent";
+import FormUser from "@/app/components/FormUser";
 import { useUsers } from "@/app/hooks/useUsers";
 import { Users } from "@/app/interfaces/users.type";
-import Link from "next/link";
 
 export default async function UpdateUser({
   params,
@@ -13,7 +12,7 @@ export default async function UpdateUser({
   return (
     <div className="sm:col-span-2 md:col-span-4">
       <div className="text-2xl lg:text-3xl font-semibold mb-3">Update User</div>
-      <FormComponent initialData={UserData} pathBack="/users" />
+      <FormUser initialData={UserData} pathBack="/users" />
     </div>
   );
 }
