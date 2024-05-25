@@ -67,13 +67,9 @@ export default async function CartList() {
   );
 
   return (
-    <>
-      <div className="sm:col-span-2 md:col-span-4">
-        <div className="flex justify-start">
-          <div className="text-2xl lg:text-3xl font-semibold">Carts</div>
-        </div>
-      </div>
+    <div className="sm:col-span-2 md:col-span-4">
+      <div className="text-2xl lg:text-3xl font-semibold">Carts</div>
       <SearchFormOrders initialData={sortOrdersUsers} />
-    </>
+    </div>
   );
 }

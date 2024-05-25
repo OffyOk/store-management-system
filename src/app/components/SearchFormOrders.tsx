@@ -34,7 +34,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
 
   return (
     <>
-      <div className="flex justify-between sm:col-span-2 md:col-span-4">
+      <div className="my-3 flex justify-between sm:col-span-2 md:col-span-4">
         <div>
           <form action="/">
             <input
@@ -52,7 +52,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
         </div>
       </div>
       <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
-        <table className="w-full table-auto text-left">
+        <table className="w-full table-auto text-left ">
           <thead>
             <tr>
               <th>DATE</th>
@@ -72,7 +72,7 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
                   <td className="hidden lg:block">{fn.email}</td>
                   <td>{fn.phone}</td>
                   <td>{fn.amount}</td>
-                  <td className="flex gap-1 justify-center mt-1">
+                  <td className="flex gap-1 mt-1">
                     <ViewButton refto={`carts/view/${fn.id}`} />
                     <UpdateButton refto={`carts/update/${fn.id}`} />
                     <DelButton />

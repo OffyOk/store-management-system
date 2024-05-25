@@ -34,7 +34,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
 
   return (
     <>
-      <div className="flex justify-between sm:col-span-2 md:col-span-4">
+      <div className="my-3 flex justify-between sm:col-span-2 md:col-span-4">
         <div>
           <form action="/">
             <input
@@ -72,7 +72,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
                   </td>
                   <td>{product.rating.rate}</td>
                   <td>{product.price}</td>
-                  <td className="flex gap-1 justify-center mt-1">
+                  <td className="flex gap-1 mt-1">
                     <ViewButton refto={`products/view/${product.id}`} />
                     <UpdateButton refto={`products/update/${product.id}`} />
                     <DelButton />

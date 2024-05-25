@@ -34,7 +34,7 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
 
   return (
     <>
-      <div className="flex items-center justify-between sm:col-span-2 md:col-span-4">
+      <div className="my-3 flex items-center justify-between sm:col-span-2 md:col-span-4">
         <div>
           <form action="/">
             <input
@@ -59,7 +59,7 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
               <th>LAST NAME</th>
               <th>USERNAME</th>
               <th className="hidden lg:block">EMAIL</th>
-              <th>PHONE NUMBER</th>
+              {/* <th>PHONE NUMBER</th> */}
               <th>ACTION</th>
             </tr>
           </thead>
@@ -71,8 +71,8 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
                   <td>{user.name.lastname}</td>
                   <td className="hidden lg:block">{user.username}</td>
                   <td>{user.email}</td>
-                  <td>{user.phone}</td>
-                  <td className="flex gap-1 justify-center mt-1">
+                  {/* <td>{user.phone}</td> */}
+                  <td className="flex gap-1 mt-1">
                     <ViewButton refto={`users/view/${user.id}`} />
                     <UpdateButton refto={`users/update/${user.id}`} />
                     <DelButton />

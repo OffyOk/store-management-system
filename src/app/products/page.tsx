@@ -6,13 +6,9 @@ export default async function ProductsList() {
   const products: Products[] = await useProducts();
 
   return (
-    <>
-      <div className="sm:col-span-2 md:col-span-4">
-        <div className="flex justify-start">
-          <div className="text-2xl lg:text-3xl font-semibold">Products</div>
-        </div>
-      </div>
+    <div className="sm:col-span-2 md:col-span-4">
+      <div className="text-2xl lg:text-3xl font-semibold">Products</div>
       <SearchFormProducts initialData={products} />
-    </>
+    </div>
   );
 }
