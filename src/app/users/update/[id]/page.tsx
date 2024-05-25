@@ -40,7 +40,11 @@ export default function UpdateUser({ params }: { params: { id: string } }) {
         </div>
       </div>
       <div className="sm:col-span-2 md:col-span-4">
-        <FormComponent currentProduct={UserData} submit={updateUser} />
+        <FormComponent
+          currentProduct={UserData}
+          submit={updateUser}
+          pathBack="/users"
+        />
       </div>
     </>
   );

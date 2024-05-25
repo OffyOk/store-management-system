@@ -26,11 +26,9 @@ export default function NavToggle() {
           alt="Logo"
         />
       </div>
-      <Link href="/">
-        <h1 className="hidden self-center whitespace-nowrap font-bold text-3xl sm:block lg:text-4xl">
-          Store Management System
-        </h1>
-      </Link>
+      <h1 className="hidden self-center whitespace-nowrap font-bold text-3xl sm:block lg:text-4xl">
+        Store Management System
+      </h1>
     </a>
   );
 }
