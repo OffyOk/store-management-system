@@ -7,7 +7,6 @@ export default async function UsersView({
 }: {
   params: { id: string };
 }) {
-  const userDetail: Users = await useUsers(params.id);
   const UserData: Users = await useUsers(params.id);
 
   return (

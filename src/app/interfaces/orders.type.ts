@@ -22,9 +22,10 @@ export interface OrdersProducts {
 export interface OrdersUsers {
   id: number;
   date: string;
+  products?: Prod[];
   fullName: string;
-  email: string;
-  phone: string;
-  address: Address;
-  amount: number;
+  email?: string;
+  phone?: string;
+  address?: Address;
+  amount?: number;
 }

@@ -7,10 +7,8 @@ import { Products } from "../interfaces/products.type";
 import SearchFormOrders from "../components/SearchFormOrders";
 
 export default async function CartList() {
-  const orders: Orders[] = await useOrders(); // order: [{id:1,userId:A,date:...,products:[{productId:...,quantity:3},...{}]},...,{}]
   const users: Users[] = await useUsers();
-  // we want to know who is this userId ,and what product in a cart
-  // so we will go in to each order then use UserId to match with id from Users
+  const orders: Orders[] = await useOrders();
   const products: Products[] = await useProducts();
 
   const ordersProducts: OrdersProducts[] = orders.map((order: Orders) => {
@@ -56,12 +54,10 @@ export default async function CartList() {
       const dateA = new Date(a.date);
       const dateB = new Date(b.date);
 
-      // First, compare the dates
       if (dateA.getTime() !== dateB.getTime()) {
-        return dateB.getTime() - dateA.getTime(); // Descending order
+        return dateB.getTime() - dateA.getTime();
       }
 
-      // If dates are the same, compare by fullName
       return a.fullName.localeCompare(b.fullName);
     }
   );

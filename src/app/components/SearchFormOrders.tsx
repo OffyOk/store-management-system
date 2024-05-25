@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import { OrdersUsers } from "../interfaces/orders.type";
+import { OrdersProducts, OrdersUsers } from "../interfaces/orders.type";
 import ViewButton from "./button/ViewButton";
 import DelButton from "./button/DelButton";
 
