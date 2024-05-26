@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { OrdersProducts, OrdersUsers } from "../interfaces/orders.type";
 import ViewButton from "./button/ViewButton";
 import DelButton from "./button/DelButton";
+import Pagination from "./Pagination";
 
 interface SearchFormProps {
   initialData: OrdersUsers[];
@@ -17,6 +18,14 @@ const SearchFormOrders = ({
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState<OrdersUsers[]>(initialData);
 
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const handlePageChange = (pageNumber: number) => setCurrentPage(pageNumber);
+
   useEffect(() => {
     setFilteredData(data);
   }, [data]);
@@ -27,6 +36,7 @@ const SearchFormOrders = ({
         .toLowerCase()
         .includes(searchTerm.toLowerCase())
     );
+    setCurrentPage(1);
     setFilteredData(results);
   }, [searchTerm, data]);
 
@@ -58,35 +68,42 @@ const SearchFormOrders = ({
         }
       >
         {filteredData.length > 0 ? (
-          <table className="w-full table-auto text-left">
-            <thead>
-              <tr>
-                <th>DATE</th>
-                <th>FULL NAME</th>
-                <th className="max-md:hidden">EMAIL</th>
-                <th className="max-lg:hidden">PHONE NUMBER</th>
-                <th className="max-sm:hidden">AMOUNT</th>
-                <th className="w-24">ACTION</th>
-              </tr>
-            </thead>
-            <tbody>
-              {filteredData.map((fn) => {
-                return (
-                  <tr key={fn.id}>
-                    <td>{fn.date}</td>
-                    <td>{fn.fullName}</td>
-                    <td className="max-md:hidden">{fn.email}</td>
-                    <td className="max-lg:hidden">{fn.phone}</td>
-                    <td className="max-sm:hidden">{fn.amount}</td>
-                    <td className="flex justify-between mt-1">
-                      <ViewButton refto={`carts/view/${fn.id}`} />
-                      <DelButton />
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+          <>
+            <table className="w-full table-auto text-left">
+              <thead>
+                <tr>
+                  <th>DATE</th>
+                  <th>FULL NAME</th>
+                  <th className="max-md:hidden">EMAIL</th>
+                  <th className="max-lg:hidden">PHONE NUMBER</th>
+                  <th className="max-sm:hidden">AMOUNT</th>
+                  <th className="w-24">ACTION</th>
+                </tr>
+              </thead>
+              <tbody>
+                {currentItems.map((fn) => {
+                  return (
+                    <tr key={fn.id}>
+                      <td>{fn.date}</td>
+                      <td>{fn.fullName}</td>
+                      <td className="max-md:hidden">{fn.email}</td>
+                      <td className="max-lg:hidden">{fn.phone}</td>
+                      <td className="max-sm:hidden">{fn.amount}</td>
+                      <td className="flex justify-between mt-1">
+                        <ViewButton refto={`carts/view/${fn.id}`} />
+                        <DelButton />
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+            <Pagination
+              totalPages={totalPages}
+              currentPage={currentPage}
+              handlePageChange={handlePageChange}
+            />
+          </>
         ) : (
           <div className="text-center text-gray-500">
             No order found for {'"'}
