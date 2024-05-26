@@ -10,6 +10,7 @@ import {
 import { Users } from "./interfaces/users.type";
 import LineChart from "@/app/components/chart";
 import Link from "next/link";
+import SearchFormOrders from "./components/SearchFormOrders";
 
 export default async function Home() {
   const products = await useProducts();
@@ -200,7 +201,7 @@ export default async function Home() {
         <span className="text-2xl font-semibold">{countProducts}</span>
       </div>
       <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black sm:col-span-2 md:col-span-2">
-        <p className="text-xl font-semibold">Product Orders/day</p>
+        <p className="text-xl font-semibold">Sales/day</p>
         {/* <ul>
           {orderPerday.map((order: DateQuan) => (
             <li key={order.quantity}>
@@ -213,7 +214,7 @@ export default async function Home() {
         </div>
       </div>
       <div className="p-4 bg-white border border-gray-200 rounded-lg shadow dark:border-white dark:bg-black sm:col-span-2 md:col-span-2">
-        <p className="text-xl font-semibold overflow-auto">Hot Sales</p>
+        <p className="text-xl font-semibold">Hot Sales</p>
         <table className="w-full">
           <thead>
             <tr>
@@ -225,7 +226,7 @@ export default async function Home() {
             {hotProduct.map((p: ReProducts) => {
               return (
                 <tr
-                  className="border-b border-neutral-200 dark:border-white/50"
+                  className="border-t border-neutral-200 dark:border-white/50"
                   key={p.id}
                 >
                   <td>{p.title}</td>
@@ -235,38 +236,10 @@ export default async function Home() {
             })}
           </tbody>
         </table>
-        {/* <div className="flex flex-fit overflow-auto">
-          {hotProduct.map((p: ReProducts) => (
-            <Card key={p.id} product={p} />
-          ))}
-        </div> */}
       </div>
-      <div className="hidden md:block p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
-        <span>Recent Order</span>
-        <table className="w-full table-auto">
-          <thead>
-            <tr>
-              <th>DATE</th>
-              <th>FULL NAME</th>
-              <th className="hidden lg:block">EMAIL</th>
-              <th>PHONE NUMBER</th>
-              <th>AMOUNT</th>
-            </tr>
-          </thead>
-          <tbody>
-            {sortOrdersUsers.map((order: OrdersUsers) => {
-              return (
-                <tr key={order.id}>
-                  <td className="text-center">{order.date}</td>
-                  <td className="text-center">{order.fullName}</td>
-                  <td className="text-center hidden lg:block">{order.email}</td>
-                  <td className="text-center">{order.phone}</td>
-                  <td className="text-center">{order.amount}</td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
+        <p className="text-xl font-semibold">Recent Order</p>
+        <SearchFormOrders initialData={sortOrdersUsers} fromDash={true} />
       </div>
     </>
   );

@@ -267,7 +267,7 @@ export default function FormCart({
         </div>
 
         <div className="my-3 col-span-2 md:col-span-4 flex flex-col md:flex-row justify-start mb-3 space-y-2 md:space-y-0 md:space-x-2">
-          {/* {!viewMode && (
+          {!viewMode && (
             <button
               type="submit"
               className="px-4 py-2 bg-green-500 text-white font-semibold border-2 border-green-500 rounded-md transition-all duration-200 ease-in-out hover:bg-green-700 hover:border-green-700"
@@ -275,7 +275,7 @@ export default function FormCart({
               {initOrder ? "Update" : "Create"}
             </button>
           )}
-          {viewMode && (
+          {/* {viewMode && (
             <Link href={updatePath}>
               <button className="w-full px-4 py-2 bg-yellow-500 text-white font-semibold border-2 border-yellow-500 rounded-md transition-all duration-200 ease-in-out hover:bg-yellow-700 hover:border-yellow-700">
                 Edit

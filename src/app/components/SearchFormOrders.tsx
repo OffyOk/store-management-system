@@ -6,9 +6,13 @@ import DelButton from "./button/DelButton";
 
 interface SearchFormProps {
   initialData: OrdersUsers[];
+  fromDash?: boolean;
 }
 
-const SearchFormOrders = ({ initialData }: SearchFormProps) => {
+const SearchFormOrders = ({
+  initialData,
+  fromDash = false,
+}: SearchFormProps) => {
   const [data, setData] = useState<OrdersUsers[]>(initialData);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState<OrdersUsers[]>(initialData);
@@ -46,7 +50,13 @@ const SearchFormOrders = ({ initialData }: SearchFormProps) => {
           </form>
         </div>
       </div>
-      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black  ">
+      <div
+        className={
+          fromDash
+            ? ""
+            : "p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black"
+        }
+      >
         <table className="w-full table-auto text-left">
           <thead>
             <tr>

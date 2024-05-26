@@ -8,9 +8,8 @@ import { Products } from "@/app/interfaces/products.type";
 
 const CartView = async ({ params }: { params: { id: string } }) => {
   const order: Orders = await useOrders(params.id);
-  const users: Users[] = await useUsers();
+  const user: Users = await useUsers(order.userId.toString());
   const products: Products[] = await useProducts();
-  const user = users.find((u: Users) => u.id === order.userId);
   const orderUser: OrdersUsers = {
     id: order.id,
     date: order.date.split("T")[0].replaceAll("-", "/"),

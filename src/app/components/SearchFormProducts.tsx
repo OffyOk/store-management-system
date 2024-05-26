@@ -57,8 +57,8 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
             <tr>
               <th>TITLE</th>
               <th className="w-36 max-sm:hidden">CATEGORY</th>
-              <th className="max-[1024px]:hidden">RATING</th>
-              <th className="max-[1024px]:hidden">PRICE</th>
+              <th className="max-[1500px]:hidden">RATING</th>
+              <th className="max-[1650px]:hidden">PRICE</th>
               <th className="w-36">ACTION</th>
             </tr>
           </thead>
@@ -68,8 +68,8 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
                 <tr className="max-sm:h-24 md:h-12" key={product.id}>
                   <td>{product.title}</td>
                   <td className="max-sm:hidden">{product.category}</td>
-                  <td className="max-[1024px]:hidden">{product.rating.rate}</td>
-                  <td className="max-[1024px]:hidden">{product.price}</td>
+                  <td className="max-[1500px]:hidden">{product.rating.rate}</td>
+                  <td className="max-[1650px]:hidden">{product.price}</td>
                   <td>
                     <div className="flex justify-between">
                       <ViewButton refto={`products/view/${product.id}`} />
