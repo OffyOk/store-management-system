@@ -21,10 +21,10 @@ export default function FormCart({
   viewMode = false,
 }: FormCartProps) {
   const router = useRouter();
-
   const itemPath = `${pathBack}/${initOrder?.id}`;
   // const updatePath = `${pathBack}/update/${initOrder?.id}`;
 
+  // for submit button
   const updateData = async (submitData: OrdersUsers) => {
     try {
       if (!initOrder) {

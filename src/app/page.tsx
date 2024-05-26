@@ -145,7 +145,7 @@ export default async function Home() {
         return {
           id: order.id,
           date: order.date.split("T")[0].replaceAll("-", "/"),
-          fullName: user.name.firstname + "" + user.name.lastname,
+          fullName: user.name.firstname + " " + user.name.lastname,
           email: user.email,
           phone: user.phone,
           address: user.address,

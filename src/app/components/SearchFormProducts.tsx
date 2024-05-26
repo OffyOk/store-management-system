@@ -14,6 +14,13 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
   const [data, setData] = useState<Products[]>(initialData);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredData, setFilteredData] = useState<Products[]>(initialData);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(5);
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+  const handlePageChange = (pageNumber: number) => setCurrentPage(pageNumber);
 
   useEffect(() => {
     setFilteredData(data);

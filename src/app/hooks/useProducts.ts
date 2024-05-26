@@ -9,3 +9,14 @@ export async function useProducts(id: string = "") {
   return data;
 }
 // output=  [{},{},{}].map/find แล้วได้ product ออกมาเป็น {}สามารถ.key=value ได้
+
+export async function useLimitProducts(id: string = "") {
+  const response = await fetch(`https://fakestoreapi.com/products?limit=${id}`);
+
+  if (!response.ok) {
+    throw new Error("Something went wrong: Cannot get product");
+  }
+
+  const data = await response.json();
+  return data;
+}
