@@ -226,7 +226,7 @@ export default async function Home() {
             {hotProduct.map((p: ReProducts) => {
               return (
                 <tr
-                  className="border-t border-neutral-200 dark:border-white/50"
+                  className="border-b border-neutral-200 dark:border-white/50"
                   key={p.id}
                 >
                   <td>{p.title}</td>
