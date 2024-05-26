@@ -36,7 +36,7 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
     <>
       <div className="my-3 flex items-center justify-between gap-1 sm:col-span-2 md:col-span-4">
         <div className="max-sm:w-full">
-          <form action="/">
+          <form action="/products">
             <input
               className="px-4 py-2 border rounded-md w-full"
               id="product"
