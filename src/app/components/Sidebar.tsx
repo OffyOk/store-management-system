@@ -1,16 +1,24 @@
+"use client";
 import Link from "next/link";
+import navToggle from "../hooks/useNavTog";
+
 export default function Sidebar() {
   return (
     <aside
       id="sidebar"
-      className="hidden h-full fixed top-0 left-0 z-20 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal bg-white dark:bg-black lg:flex "
+      className="hidden h-full fixed top-0 left-0 z-30 flex-col flex-shrink-0 w-64 h-full pt-16 font-normal bg-white dark:bg-black lg:flex "
     >
       <div className="relative flex flex-col flex-1 min-h-0 pt-0 border-r  max-lg:border-b max-lg:rounded-br ">
         <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
           <div className="flex-1 px-3 space-y-1">
             <ul className="pb-2 space-y-2">
               <li className="flex items-center p-2 text-base rounded-lg">
-                <Link id="navbar-link" className="capitalize flex" href="/">
+                <Link
+                  onClick={navToggle}
+                  id="navbar-link"
+                  className="capitalize flex"
+                  href="/"
+                >
                   <svg
                     className="mr-2 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                     fill="currentColor"
@@ -24,7 +32,11 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="flex items-center p-2 text-base rounded-lg">
-                <Link className="capitalize flex" href="/users">
+                <Link
+                  onClick={navToggle}
+                  className="capitalize flex"
+                  href="/users"
+                >
                   <svg
                     className="mr-2 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                     fill="currentColor"
@@ -42,7 +54,11 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="flex items-center p-2 text-base rounded-lg">
-                <Link className="capitalize flex" href="/products">
+                <Link
+                  onClick={navToggle}
+                  className="capitalize flex"
+                  href="/products"
+                >
                   <svg
                     className="mr-2 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                     fill="currentColor"
@@ -55,7 +71,11 @@ export default function Sidebar() {
                 </Link>
               </li>
               <li className="flex items-center p-2 text-base rounded-lg">
-                <Link className="capitalize flex" href="/carts">
+                <Link
+                  onClick={navToggle}
+                  className="capitalize flex"
+                  href="/carts"
+                >
                   <svg
                     className="mr-2 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                     fill="currentColor"
@@ -69,7 +89,7 @@ export default function Sidebar() {
                 </Link>
               </li>
               {/* <li className="flex items-center p-2 text-base rounded-lg">
-                      <Link className="flex" href="/reports">
+                      <Link onClick={navToggle} className="flex" href="/reports">
                         <svg
                           className="mr-2 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
                           fill="currentColor"

@@ -1,20 +1,8 @@
 "use client";
 import Image from "next/image";
-import Link from "next/link";
+import navToggle from "../hooks/useNavTog";
 
 export default function NavToggle() {
-  const navToggle = () => {
-    const asideElement = document.querySelector("aside");
-    const maxSmallMediumWidth = 1024;
-
-    if (window.innerWidth <= maxSmallMediumWidth && asideElement) {
-      asideElement.classList.toggle("hidden");
-      asideElement.classList.toggle("h-full");
-      asideElement.classList.toggle("rounded-lg");
-      asideElement.classList.toggle("shadow-lg");
-    }
-  };
-
   return (
     <a onClick={navToggle} className="flex ml-2 md:mr-24">
       <div className="h-12 w-12 mr-3">
