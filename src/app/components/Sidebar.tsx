@@ -12,7 +12,7 @@ export default function Sidebar() {
         <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
           <div className="flex-1 px-3 space-y-1">
             <ul className="pb-2 space-y-2">
-              <li className="flex items-center p-2 text-base rounded-lg hover:underline">
+              <li className="flex items-center p-2 text-base rounded-lg hover:underline ">
                 <Link
                   onClick={navToggle}
                   id="navbar-link"
