@@ -54,7 +54,7 @@ const SearchFormOrders = ({
         className={
           fromDash
             ? ""
-            : "p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black"
+            : "mb-4 p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black"
         }
       >
         {filteredData.length > 0 ? (

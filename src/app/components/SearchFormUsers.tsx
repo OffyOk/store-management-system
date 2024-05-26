@@ -51,7 +51,7 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
           <CreateButton refto="/users/create" page="Customer" />
         </div>
       </div>
-      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
+      <div className="mb-4 p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
         {filteredData.length > 0 ? (
           <table className="w-full table-auto text-left">
             <thead>

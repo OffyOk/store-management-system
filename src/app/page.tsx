@@ -237,7 +237,7 @@ export default async function Home() {
           </tbody>
         </table>
       </div>
-      <div className="p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
+      <div className="mb-4 p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
         <p className="text-xl font-semibold">Recent Order</p>
         <SearchFormOrders initialData={sortOrdersUsers} fromDash={true} />
       </div>
