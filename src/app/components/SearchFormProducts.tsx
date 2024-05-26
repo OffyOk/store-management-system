@@ -52,36 +52,46 @@ const SearchFormProducts = ({ initialData }: SearchFormProps) => {
         </div>
       </div>
       <div className="p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black">
-        <table className="w-full table-auto  text-left">
-          <thead>
-            <tr>
-              <th>TITLE</th>
-              <th className="w-36 max-sm:hidden">CATEGORY</th>
-              <th className="max-[1500px]:hidden">RATING</th>
-              <th className="max-[1650px]:hidden">PRICE</th>
-              <th className="w-36">ACTION</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((product: Products) => {
-              return (
-                <tr className="max-sm:h-24 md:h-12" key={product.id}>
-                  <td>{product.title}</td>
-                  <td className="max-sm:hidden">{product.category}</td>
-                  <td className="max-[1500px]:hidden">{product.rating.rate}</td>
-                  <td className="max-[1650px]:hidden">{product.price}</td>
-                  <td>
-                    <div className="flex justify-between">
-                      <ViewButton refto={`products/view/${product.id}`} />
-                      <UpdateButton refto={`products/update/${product.id}`} />
-                      <DelButton />
-                    </div>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {filteredData.length > 0 ? (
+          <table className="w-full table-auto  text-left">
+            <thead>
+              <tr>
+                <th>TITLE</th>
+                <th className="w-36 max-sm:hidden">CATEGORY</th>
+                <th className="max-[1500px]:hidden">RATING</th>
+                <th className="max-[1650px]:hidden">PRICE</th>
+                <th className="w-36">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredData.map((product: Products) => {
+                return (
+                  <tr className="max-sm:h-24 md:h-12" key={product.id}>
+                    <td>{product.title}</td>
+                    <td className="max-sm:hidden">{product.category}</td>
+                    <td className="max-[1500px]:hidden">
+                      {product.rating.rate}
+                    </td>
+                    <td className="max-[1650px]:hidden">{product.price}</td>
+                    <td>
+                      <div className="flex justify-between">
+                        <ViewButton refto={`products/view/${product.id}`} />
+                        <UpdateButton refto={`products/update/${product.id}`} />
+                        <DelButton />
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        ) : (
+          <div className="text-center text-gray-500">
+            No product found for {'"'}
+            {searchTerm}
+            {'"'}
+          </div>
+        )}
       </div>
     </>
   );

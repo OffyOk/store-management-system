@@ -23,7 +23,7 @@ const SearchFormOrders = ({
 
   useEffect(() => {
     const results = data.filter((item) =>
-      `$${item.date} ${item.fullName} ${item.email} ${item.phone} ${item.amount}`
+      `${item.date} ${item.fullName} ${item.email} ${item.phone} ${item.amount}`
         .toLowerCase()
         .includes(searchTerm.toLowerCase())
     );
@@ -57,35 +57,43 @@ const SearchFormOrders = ({
             : "p-4 bg-white border border-gray-200 rounded-lg shadow col-span-auto sm:col-span-2 md:col-span-4  dark:border-white dark:bg-black"
         }
       >
-        <table className="w-full table-auto text-left">
-          <thead>
-            <tr>
-              <th>DATE</th>
-              <th>FULL NAME</th>
-              <th className="max-md:hidden">EMAIL</th>
-              <th className="max-lg:hidden">PHONE NUMBER</th>
-              <th className="max-sm:hidden">AMOUNT</th>
-              <th className="w-24">ACTION</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredData.map((fn) => {
-              return (
-                <tr key={fn.id}>
-                  <td>{fn.date}</td>
-                  <td>{fn.fullName}</td>
-                  <td className="max-md:hidden">{fn.email}</td>
-                  <td className="max-lg:hidden">{fn.phone}</td>
-                  <td className="max-sm:hidden">{fn.amount}</td>
-                  <td className="flex justify-between mt-1">
-                    <ViewButton refto={`carts/view/${fn.id}`} />
-                    <DelButton />
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+        {filteredData.length > 0 ? (
+          <table className="w-full table-auto text-left">
+            <thead>
+              <tr>
+                <th>DATE</th>
+                <th>FULL NAME</th>
+                <th className="max-md:hidden">EMAIL</th>
+                <th className="max-lg:hidden">PHONE NUMBER</th>
+                <th className="max-sm:hidden">AMOUNT</th>
+                <th className="w-24">ACTION</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredData.map((fn) => {
+                return (
+                  <tr key={fn.id}>
+                    <td>{fn.date}</td>
+                    <td>{fn.fullName}</td>
+                    <td className="max-md:hidden">{fn.email}</td>
+                    <td className="max-lg:hidden">{fn.phone}</td>
+                    <td className="max-sm:hidden">{fn.amount}</td>
+                    <td className="flex justify-between mt-1">
+                      <ViewButton refto={`carts/view/${fn.id}`} />
+                      <DelButton />
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        ) : (
+          <div className="text-center text-gray-500">
+            No order found for {'"'}
+            {searchTerm}
+            {'"'}
+          </div>
+        )}
       </div>
     </>
   );
