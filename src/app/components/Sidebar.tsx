@@ -12,7 +12,7 @@ export default function Sidebar() {
         <div className="flex flex-col flex-1 pt-5 pb-4 overflow-y-auto">
           <div className="flex-1 px-3 space-y-1">
             <ul className="pb-2 space-y-2">
-              <li className="flex items-center p-2 text-base rounded-lg">
+              <li className="flex items-center p-2 text-base rounded-lg hover:underline">
                 <Link
                   onClick={navToggle}
                   id="navbar-link"
@@ -31,7 +31,7 @@ export default function Sidebar() {
                   dashboard
                 </Link>
               </li>
-              <li className="flex items-center p-2 text-base rounded-lg">
+              <li className="flex items-center p-2 text-base rounded-lg hover:underline">
                 <Link
                   onClick={navToggle}
                   className="capitalize flex"
@@ -53,7 +53,7 @@ export default function Sidebar() {
                   customers
                 </Link>
               </li>
-              <li className="flex items-center p-2 text-base rounded-lg">
+              <li className="flex items-center p-2 text-base rounded-lg hover:underline">
                 <Link
                   onClick={navToggle}
                   className="capitalize flex"
@@ -70,7 +70,7 @@ export default function Sidebar() {
                   products
                 </Link>
               </li>
-              <li className="flex items-center p-2 text-base rounded-lg">
+              <li className="flex items-center p-2 text-base rounded-lg hover:underline">
                 <Link
                   onClick={navToggle}
                   className="capitalize flex"
@@ -88,7 +88,7 @@ export default function Sidebar() {
                   carts
                 </Link>
               </li>
-              {/* <li className="flex items-center p-2 text-base rounded-lg">
+              {/* <li className="flex items-center p-2 text-base rounded-lg hover:underline">
                       <Link onClick={navToggle} className="flex" href="/reports">
                         <svg
                           className="mr-2 flex-shrink-0 w-6 h-6 text-gray-500 transition duration-75 group-hover:text-gray-900 dark:text-gray-400 dark:group-hover:text-white"
