@@ -277,16 +277,20 @@ export default function FormCart({
           )}
           {/* {viewMode && (
             <Link href={updatePath}>
-              <button className="w-full px-4 py-2 bg-yellow-500 text-white font-semibold border-2 border-yellow-500 rounded-md transition-all duration-200 ease-in-out hover:bg-yellow-700 hover:border-yellow-700">
+              <button type="button" className="w-full px-4 py-2 bg-yellow-500 text-white font-semibold border-2 border-yellow-500 rounded-md transition-all duration-200 ease-in-out hover:bg-yellow-700 hover:border-yellow-700">
                 Edit
               </button>
             </Link>
           )} */}
-          <Link href={pathBack}>
-            <button className="w-full px-4 py-2 bg-red-500 text-white font-semibold border-2 border-red-500 rounded-md transition-all duration-200 ease-in-out hover:bg-red-700 hover:border-red-700">
+          <div>
+            <button
+              type="button"
+              onClick={() => router.back()}
+              className="w-full px-4 py-2 bg-red-500 text-white font-semibold border-2 border-red-500 rounded-md transition-all duration-200 ease-in-out hover:bg-red-700 hover:border-red-700"
+            >
               Cancel
             </button>
-          </Link>
+          </div>
         </div>
       </form>
     </>

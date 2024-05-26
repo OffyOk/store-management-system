@@ -77,16 +77,18 @@ const SearchFormUsers = ({ initialData }: SearchFormProps) => {
               <tbody>
                 {currentItems.map((user: Users) => {
                   return (
-                    <tr key={user.id}>
+                    <tr className="max-sm:h-24 md:h-12" key={user.id}>
                       <td className="max-sm:hidden">{user.name.firstname}</td>
                       <td className="max-sm:hidden">{user.name.lastname}</td>
                       <td>{user.username}</td>
                       <td className="max-md:hidden">{user.email}</td>
                       <td className="max-[1024px]:hidden">{user.phone}</td>
-                      <td className="flex justify-between mt-1">
-                        <ViewButton refto={`users/view/${user.id}`} />
-                        <UpdateButton refto={`users/update/${user.id}`} />
-                        <DelButton />
+                      <td>
+                        <div className="flex justify-between">
+                          <ViewButton refto={`users/view/${user.id}`} />
+                          <UpdateButton refto={`users/update/${user.id}`} />
+                          <DelButton />
+                        </div>
                       </td>
                     </tr>
                   );

@@ -83,15 +83,18 @@ const SearchFormOrders = ({
               <tbody>
                 {currentItems.map((fn) => {
                   return (
-                    <tr key={fn.id}>
+                    <tr className="max-sm:h-24 md:h-12" key={fn.id}>
                       <td>{fn.date}</td>
                       <td>{fn.fullName}</td>
                       <td className="max-md:hidden">{fn.email}</td>
                       <td className="max-lg:hidden">{fn.phone}</td>
                       <td className="max-sm:hidden">{fn.amount}</td>
-                      <td className="flex justify-between mt-1">
-                        <ViewButton refto={`carts/view/${fn.id}`} />
-                        <DelButton />
+                      <td>
+                        {" "}
+                        <div className="flex justify-between">
+                          <ViewButton refto={`carts/view/${fn.id}`} />
+                          <DelButton />
+                        </div>
                       </td>
                     </tr>
                   );
